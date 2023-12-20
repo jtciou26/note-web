@@ -37,18 +37,18 @@ const Header = props => {
     <HeaderBar>
       <img src={logo} alt="Notedly Logo" height="40" />
       <LogoText>Notedly</LogoText>
-      {/* If logged in display a log out link, else display sign in options */}
+      {/* 若已登入則顯示登出連結 否則顯示登入選樣 */}
       <UserState>
         {data.isLoggedIn ? (
           <ButtonAsLink
             onClick={() => {
-              // remove the token
+              // 移除權杖token
               localStorage.removeItem('token');
-              // clear the application's cache
+              // 清除快取cache
               client.resetStore();
-              // update local state
+              // 更新本機狀態 local state
               client.writeData({ data: { isLoggedIn: false } });
-              // redirect the user to the homepage
+              // 重新導向
               props.history.push('/');
             }}
           >

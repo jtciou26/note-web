@@ -52,7 +52,7 @@ const UserForm = props => {
       >
         {props.formType === 'signup' && (
           <React.Fragment>
-            <label htmlFor="username">Username:</label>
+            <label ="username">Username:</label>
             <input
               required
               type="text"
@@ -63,7 +63,7 @@ const UserForm = props => {
             />
           </React.Fragment>
         )}
-        <label htmlFor="email">Email:</label>
+        <label ="email">Email:</label>
         <input
           required
           type="email"
@@ -72,7 +72,7 @@ const UserForm = props => {
           placeholder="Email"
           onChange={onChange}
         />
-        <label htmlFor="password">Password:</label>
+        <label ="password">Password:</label>
         <input
           required
           type="password"

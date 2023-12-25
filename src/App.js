@@ -50,8 +50,7 @@ const App = () => {
     <ApolloProvider client={client}>
         <GlobalStyle />
         <Pages />
-        <SEO title='首頁 - Notedly'>
-        </SEO>
+        <SEO title='首頁' />
     </ApolloProvider>
     
   );

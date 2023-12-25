@@ -10,7 +10,7 @@ const SEO = ({title}) => (
     <meta property="og:title" content="寫筆記的地方" />
     <meta property="og:description" content="寫點筆記"/>
     <meta property="og:url" content="https://toegazer.onrender.com" />
-    <meta property="og:image" content="../img/miffy.png"/>
+    <meta property="og:image" content="https://toegazer.onrender.com/miffy-large.8dbadafb.png"/>
   </Helmet>
 );
 

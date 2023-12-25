@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SEO from './components/Seo';
+import SEO from '/components/Seo';
 
 import {
   ApolloClient,

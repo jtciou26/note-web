@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import SEO from './components/Seo';
 
 import {
   ApolloClient,
@@ -49,7 +50,10 @@ const App = () => {
     <ApolloProvider client={client}>
         <GlobalStyle />
         <Pages />
+        <SEO title='首頁 - Notedly'>
+        </SEO>
     </ApolloProvider>
+    
   );
 };
 

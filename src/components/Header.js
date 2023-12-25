@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../img/123.png';
+import logo from '../img/miffy.png';
 import { useQuery } from '@apollo/client';
 import { Link, withRouter } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ const HeaderBar = styled.header`
 `;
 
 const LogoText = styled.h1`
-    margin: 0;
+    margin-left: 10px;
     padding: 0;
     display: inline;
 `;
@@ -35,8 +35,8 @@ const Header = props => {
     
     return (
         <HeaderBar>
-            <img src={logo} alt="Notedly Logo" height="60" />
-            <LogoText>Notedly</LogoText>
+            <img src={logo} alt="Notedly Logo" height="45" />
+            <LogoText> Notedly</LogoText>
             {/* 若已登入則顯示登出連結 */}
             <UserState>
                 {data.isLoggedIn ? (

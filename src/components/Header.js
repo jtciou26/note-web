@@ -40,6 +40,9 @@ const Header = props => {
             {/* 若已登入則顯示登出連結 */}
             <UserState>
                 {data.isLoggedIn ? (
+                    [
+                    <Link to='/new'>new</Link>,
+                    <span style={{ margin: '0 5px' }} />,
                     <ButtonAsLink
                         onClick={() => {
                             localStorage.removeItem('token');
@@ -50,10 +53,12 @@ const Header = props => {
                     >
                         登出
                     </ButtonAsLink>
-                ) : (
+                    ]
+                    ) : (
                     <p>
                         <Link to={'/signin'}>Sign In</Link> or{' '}
                         <Link to={'/signup'}>Sign Up</Link>
+                     
                     </p>
                 )}
             </UserState>

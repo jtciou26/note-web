@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_NOTES } from '../gql/query';
 import Button from '../components/Button';
 import NoteFeed from '../components/NoteFeed';
 
 const Home = () => {
+  useEffect(() => {
+    document.title = 'Home - Notedly'
+});
   const { data, loading, error, fetchMore } = useQuery(GET_NOTES);
 
   if (loading) return <p>Loading...</p>;

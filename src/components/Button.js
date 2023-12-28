@@ -10,7 +10,8 @@ const Button = style.button`
     background-color: #0077cc;
     cursor: pointer;
     margin: 0 auto;
-
+    margin-top: 10px;
+    
     :hover {
         opacity: 0.5;
     }

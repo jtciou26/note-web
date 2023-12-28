@@ -35,7 +35,9 @@ const Header = props => {
     
     return (
         <HeaderBar>
-            <img src={logo} alt="Notedly Logo" height="45" />
+            <Link to="/">
+                <img src={logo} alt="Notedly Logo" height="45" />
+            </Link>
             <LogoText>隨手記</LogoText>
             {/* 若已登入則顯示登出連結 */}
             <UserState>

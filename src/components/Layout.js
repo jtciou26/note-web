@@ -18,14 +18,13 @@ const Wrapper = styled.div`
 
 const Main = styled.main`
     position: fixed;
-    height: calc(100% - 185px);
+    height: calc(100% - 64px);
     width: 100%;
     padding: 1em;
     overflow-y: auto;
     @media (min-width: 700px) {
         flex:1;
         margin-left: 220px;
-        height: calc(100% - 64px);
         width: calc(100% - 220px);
     };
 `;

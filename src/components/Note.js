@@ -10,6 +10,7 @@ import { IS_LOGGED_IN } from '../gql/query';
 const StyledNote = styled.article`
     max-width: 800px;
     margin: 0 auto;
+    overflow: hidden;
 `;
 
 //將筆記中繼資料樣式化

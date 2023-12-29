@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "parcel src/index.html",
     "final": "parcel final/index.html",
-    "deploy:src": "parcel build src/index.html --public-url ./",
+    "deploy:src": "parcel build src/index.html --public-url /",
     "deploy:final": "parcel build final/index.html --public-url ./",
     "cy:run": "cypress run",
     "cy:open": "cypress open"
@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/javascripteverywhere/web/issues"
   },
-  "homepage": ".",
+  "homepage": "/",
   "dependencies": {
     "@apollo/client": "3.0.0-beta.24",
     "@types/react": "^16.9.17",

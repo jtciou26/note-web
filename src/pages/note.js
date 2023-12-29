@@ -13,6 +13,8 @@ const NotePage = props => {
         const { loading, error, data, refetch } = useQuery(GET_NOTE, { variables: {id} });
 
         useEffect(() => {
+            fetchPolicy: 'network-only',
+            console.log('Component mounted, refetching data');
             refetch();
           }, [id, refetch]);
 

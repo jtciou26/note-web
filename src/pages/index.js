@@ -32,11 +32,11 @@ const Pages = () => {
             <Route exact path="/" component={Home} />
             <PrivateRoute path="/mynotes" component={MyNotes} />
             <PrivateRoute path="/favorites" component={Favorites} />
-            <Route path="/note/:id" exact component={Note} />
+            <Route path="/note/:id" component={Note} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <PrivateRoute path="/new" component={NewNote} />
-            <PrivateRoute path="/edit/:id" exact component={EditNote} />
+            <PrivateRoute path="/edit/:id" component={EditNote} />
           </Layout>
         </Router>
     );

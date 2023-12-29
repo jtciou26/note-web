@@ -50,10 +50,9 @@ const App = () => {
         <GlobalStyle />
         <Pages />
     </ApolloProvider>
-    
   );
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-// index.html -> App.js -> Pages (/pages/index.js) => layout, home, etc..
+// index.html -> App.js -> Pages (/pages/index.js) => home, etc..

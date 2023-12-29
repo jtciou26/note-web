@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 
-
 //匯入版面元件
 import Layout from '../components/Layout';
 
@@ -16,13 +15,11 @@ import Note from './note';
 import NewNote from './new';
 import EditNote from './edit';
 
-
 const IS_LOGGED_IN = gql`
   {
     isLoggedIn @client
   }
   `;
-
 
 //定義路徑
 const Pages = () => {
@@ -32,11 +29,11 @@ const Pages = () => {
             <Route exact path="/" component={Home} />
             <PrivateRoute path="/mynotes" component={MyNotes} />
             <PrivateRoute path="/favorites" component={Favorites} />
-            <Route path="/note/:id" component={Note} />
+            <Route exact path="/note/:id" component={Note} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <PrivateRoute path="/new" component={NewNote} />
-            <PrivateRoute path="/edit/:id" component={EditNote} />
+            <PrivateRoute exact path="/edit/:id" component={EditNote} />
           </Layout>
         </Router>
     );

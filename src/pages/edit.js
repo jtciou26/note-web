@@ -9,7 +9,7 @@ const EditNote = props => {
     // 將在 url 找到的id儲存為變數
     const id = props.match.params.id;
     // 定義註記查詢
-    const { loading, error, data } = useQuery(GET_NOTE, { variables: { id } });
+    const { loading, error, data, refetch } = useQuery(GET_NOTE, { variables: { id } });
     const { data: userdata } = useQuery(GET_ME);
     //square brackets are used to extract the first item of an array returned by the useMutation hook.
     const [editNote] = useMutation(EDIT_NOTE, {
@@ -20,6 +20,10 @@ const EditNote = props => {
         props.history.push(`/note/${id}`);
       }
     });
+
+    useEffect(() => {
+      refetch();
+    }, [id, refetch]);
 
     if (loading) return 'Loading...';
     if (error) return <p>Error! Note not found</p>;

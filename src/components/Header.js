@@ -42,20 +42,17 @@ const Header = props => {
             {/* 若已登入則顯示登出連結 */}
             <UserState>
                 {data.isLoggedIn ? (
-                    [
-                    <Link to='/new'>new</Link>,
                     <span style={{ margin: '0 5px' }} />,
                     <ButtonAsLink
                         onClick={() => {
                             localStorage.removeItem('token');
                             client.resetStore();
                             client.writeData({ data: { isLoggedIn: false } });
-                            props.history.push('/signin');
+                            props.history.push('/new');
                         }}
                     >
-                        登出
+                        新筆記
                     </ButtonAsLink>
-                    ]
                     ) : (
                     <p>
                         <Link to={'/signin'}>Sign In</Link> or{' '}

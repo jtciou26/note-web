@@ -39,25 +39,14 @@ const Header = props => {
                 <img src={logo} alt="Notedly Logo" height="45" />
             </Link>
             <LogoText>隨手記</LogoText>
-            {/* 若已登入則顯示登出連結 */}
+            
             <UserState>
                 {data.isLoggedIn ? (
-                    <span style={{ margin: '0 5px' }} />,
-                    <ButtonAsLink
-                        onClick={() => {
-                            localStorage.removeItem('token');
-                            client.resetStore();
-                            client.writeData({ data: { isLoggedIn: false } });
-                            props.history.push('/new');
-                        }}
-                    >
-                        新筆記
-                    </ButtonAsLink>
+                    <Link to='/new'>新筆記</Link>
                     ) : (
                     <p>
                         <Link to={'/signin'}>Sign In</Link> or{' '}
                         <Link to={'/signup'}>Sign Up</Link>
-                     
                     </p>
                 )}
             </UserState>

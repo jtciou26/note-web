@@ -27,7 +27,7 @@ const IS_LOGGED_IN = gql`
 //定義路徑
 const Pages = () => {
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
           <Layout>
             <Route exact path="/" component={Home} />
             <PrivateRoute path="/mynotes" component={MyNotes} />

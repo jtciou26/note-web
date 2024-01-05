@@ -6,6 +6,7 @@ import { Link, withRouter } from 'react-router-dom';
 
 import ButtonAsLink from './ButtonAsLink';
 import { IS_LOGGED_IN } from '../gql/query';
+import { EditPen } from './Icons/EditPen';
 
 const HeaderBar = styled.header`
     width: 100%;
@@ -42,7 +43,24 @@ const Header = props => {
             
             <UserState>
                 {data.isLoggedIn ? (
-                    <Link to='/new'>新筆記</Link>
+                    [
+                    <ButtonAsLink
+                    onClick={() => {
+                      // remove the token
+                      localStorage.removeItem('token');
+                      // clear the application's cache
+                      client.resetStore();
+                      // update local state
+                      client.writeData({ data: { isLoggedIn: false } });
+                      // redirect the user to the homepage
+                      props.history.push('/');
+                    }}
+                  >
+                    logout 
+                    </ButtonAsLink>,
+                    ' ',
+                    <Link to='/new'>新筆記<EditPen /></Link>
+                    ]   
                     ) : (
                     <p>
                         <Link to={'/signin'}>Sign In</Link> or{' '}

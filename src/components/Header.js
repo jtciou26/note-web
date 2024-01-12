@@ -59,6 +59,8 @@ const Header = props => {
                     logout 
                     </ButtonAsLink>,
                     ' ',
+                    <Link to='/video'>Video</Link>,
+                    ' ',
                     <Link to='/new'>新筆記<EditPen /></Link>
                     ]   
                     ) : (

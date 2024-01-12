@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import RwdYoutube from '../components/RwdYoutube'
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
     max-width: 800px;
-    margin: auto;
+    margin: 0 auto;
     input { 
         width: 80%;
         margin-bottom: 16px;
@@ -53,6 +53,13 @@ export default function Video() {
     }
   };
 
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      // Trigger handleUrlChange when 'Enter' key is pressed
+      handleLoadClick(event);
+    }
+  };
+
   return (
     <Wrapper>
       <input
@@ -60,6 +67,7 @@ export default function Video() {
         placeholder="貼上 YouTube 網址"
         value={url}
         onChange={handleUrlChange}
+        onKeyDown={handleKeyDown}
       />
       <button onClick={handleLoadClick}>Load</button>
       

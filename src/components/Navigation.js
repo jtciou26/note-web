@@ -50,16 +50,19 @@ const Navigation = () => {
         <Nav>
             <NavList>
                 <li>
-                    <Link to="/">Home</Link>
+                    <span aria-hidden="true">🏠</span><Link to="/">Home</Link>
                 </li>
                 <li>
-                    <Link to="/mynotes">My Notes</Link>
+                    <span aria-hidden="true">🐷</span><Link to="/mynotes">My Notes</Link>
                 </li>
                 <li>
-                    <Link to="/favorites">Favorites</Link>
+                    <span aria-hidden="true">🍖</span><Link to="/favorites">Favorites</Link>
                 </li>
                 <li>
-                    <Link to="/new">New Note</Link>
+                    <span aria-hidden="true">🔺</span><Link to="/video">Video</Link>
+                </li>
+                <li>
+                    <span aria-hidden="true">📝</span><Link to="/new">New Note</Link>
                 </li>
             </NavList>
         </Nav>

@@ -1,4 +1,5 @@
 {
-  "presets": ["env", "react"],
+  "presets": ["env", "es2015", "react", "stage-0"],
   "plugins": ["babel-plugin-styled-components", "transform-object-rest-spread"]
 }
+

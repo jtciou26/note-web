@@ -19,7 +19,7 @@ const Form = styled.form`
     }
 
     input { 
-        width: 100%
+        width: 100%;
         margin-bottom: 1em;
     }
 `;
@@ -52,7 +52,7 @@ return (
 
         {props.formType === 'signup' && (
             <React.Fragment>
-            {/* JSX hrmlFor 取代 HTML 的for屬性以避免任何JS衝突*/}
+            {/* JSX htmlFor 取代 HTML 的for屬性以避免任何JS衝突*/}
             <label htmlFor="username">Username:</label>
             <input
                 required

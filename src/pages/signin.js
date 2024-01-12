@@ -32,7 +32,7 @@ const SignIn = props => {
 
     return (
         <React.Fragment>
-            <UserForm action={signIn} formType="signip" />
+            <UserForm action={signIn} formType="signin" />
         {loading && <p>Loading...</p>}
         {error && <p>Error signing in!</p>}
         </React.Fragment>

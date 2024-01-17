@@ -6,7 +6,7 @@ const Wrapper = styled.div`
     max-width: 800px;
     margin: 0 auto;
     input { 
-        width: 80%;
+        width: 75%;
         margin-bottom: 16px;
         margin-right: 4px;
     }

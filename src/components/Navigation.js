@@ -1,6 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Home } from './Icons/Home';
+import { Heart } from './Icons/Heart';
+import { MyNote } from './Icons/MyNote';
+import { Video } from './Icons/Video';
+import { EditPen } from './Icons/EditPen';
 
 const Nav =  styled.nav`
     padding: 1em;
@@ -50,19 +55,19 @@ const Navigation = () => {
         <Nav>
             <NavList>
                 <li>
-                    <span aria-hidden="true">🏠</span><Link to="/">Home</Link>
+                <Home />{' '}<Link to="/">Home</Link>
                 </li>
                 <li>
-                    <span aria-hidden="true">🐷</span><Link to="/mynotes">My Notes</Link>
+                <MyNote />{' '}<Link to="/mynotes">My Notes</Link>
                 </li>
                 <li>
-                    <span aria-hidden="true">🍖</span><Link to="/favorites">Favorites</Link>
+                <Heart />{' '}<Link to="/favorites">Favorites</Link>
                 </li>
                 <li>
-                    <span aria-hidden="true">🔺</span><Link to="/video">Video</Link>
+                <Video />{' '}<Link to="/video">Video</Link>
                 </li>
                 <li>
-                    <span aria-hidden="true">📝</span><Link to="/new">New Note</Link>
+                <EditPen />{' '}<Link to="/new">New Note</Link>
                 </li>
             </NavList>
         </Nav>

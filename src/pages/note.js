@@ -8,7 +8,6 @@ import { GET_NOTE } from '../gql/query';
 const NotePage = (props) => {
     // 將在 url 中找到的id儲存為變數
         const id = props.match.params.id;
-        console.log(id);
     //查詢hook 以變數形式傳遞id值
         const { loading, error, data, refetch } = useQuery(GET_NOTE, { variables: { id } });
         const [note, setNote] = useState(null);

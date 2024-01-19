@@ -14,8 +14,11 @@ const MyNotes = () => {
 
     if (loading) return 'Loading...';
     if (error) return `Error! $ {error.message}`;
-    if (data.me.notes.length !== 0) {
-      return <NoteFeed notes={data.me.notes} />;
+
+    const filteredNotes = data.me.notes.filter(note => !note.isRemoved);
+
+    if (filteredNotes !== 0) {
+      return <NoteFeed notes={filteredNotes} />;
     }else {
       return <p>no note yet</p>
     }

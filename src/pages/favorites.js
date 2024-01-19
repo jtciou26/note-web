@@ -13,8 +13,11 @@ const Favorites = () => {
 
     if (loading) return 'Loading...';
     if (error) return `Error! $ {error.message}`;
-    if (data.me.favorites.length !== 0) {
-      return <NoteFeed notes={data.me.favorites} />;
+
+    const filteredNotes = data.me.favorites.filter(note => !note.isRemoved);
+
+    if (filteredNotes !== 0) {
+      return <NoteFeed notes={filteredNotes} />;
     }else {
       return <p>no favorites yet</p>
     }

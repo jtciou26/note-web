@@ -5,11 +5,17 @@ export const EditPen = () => (
       xmlns="http://www.w3.org/2000/svg" 
       width="16" 
       height="18" 
-      fill="black" 
+      fill="#000000"
       viewBox='0 0 24 24'
       style={{ position: 'relative', top: '3px' }}
-
   >
-    <path d="M21.48,7.37,16.62,2.52a.8.8,0,0,0-1.13,0L13,5h0l-9.1,9.1a1.6,1.6,0,0,0-.43.87L2.3,20.76a.8.8,0,0,0,.94.94L9,20.54a1.6,1.6,0,0,0,.87-.43L19,11h0l.06-.07.28-.28.35-.35h0l1.81-1.8A.81.81,0,0,0,21.48,7.37ZM4.16,16.56a1.52,1.52,0,0,0,1,.23,2,2,0,0,0,2,2,1.52,1.52,0,0,0,.23,1l-4.1.82Zm14.1-6.25L9.17,19.4a.57.57,0,0,1-.81-.81l-.06-.06a1.68,1.68,0,0,0,.4-.3.5.5,0,0,0,0-.71.5.5,0,0,0-.7,0A1.07,1.07,0,0,1,6.48,16a.5.5,0,0,0-.71-.71,2,2,0,0,0-.3.41l-.06-.06a.56.56,0,0,1-.81,0,.58.58,0,0,1,0-.81l9.09-9.09L14.85,6.9h0l2.25,2.24h0ZM19,9.59,14.41,5l1.65-1.65,4.57,4.57Z" />
-</svg>
+  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+  <g id="SVGRepo_iconCarrier"> <title></title> 
+  <g id="Complete"> 
+  <g id="edit"> 
+  <g> <path d="M20,16v4a2,2,0,0,1-2,2H4a2,2,0,0,1-2-2V6A2,2,0,0,1,4,4H8" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path> 
+  <polygon fill="none" points="12.5 15.8 22 6.2 17.8 2 8.3 11.5 8 16 12.5 15.8" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></polygon> 
+  </g> </g> </g> </g></svg>
+
 );

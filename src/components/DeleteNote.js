@@ -17,7 +17,7 @@ const DeleteNote = props => {
             props.history.push('/mynotes');
         }
     });
-return <ButtonAsLink onClick={deleteNote}>刪除<TrashCan /></ButtonAsLink>
+return <ButtonAsLink onClick={deleteNote} style={{color: 'lightgray'}}>刪除<TrashCan /></ButtonAsLink>
 
 }
 

@@ -20,9 +20,8 @@ const NoteUser = props => {
                 {'  '}
             {data.me.id === props.note.author.id && (
                 <React.Fragment>
-                    <DeleteNote noteId={props.note.id} />{' '}
+                    <DeleteNote noteId={props.note.id} />{'  '}
                     <Link to={`/edit/${props.note.id}`}>編輯<EditPen /></Link>
-        
                 </React.Fragment>
             )}
         </React.Fragment>

@@ -11,7 +11,7 @@ import SignUp from './signup';
 import SignIn from './signin';
 import MyNotes from './mynotes';
 import Favorites from './favorites';
-import Note from './note';
+import NotePage from './notepage';
 import NewNote from './new';
 import EditNote from './edit';
 import Video from './video'
@@ -30,7 +30,7 @@ const Pages = () => {
             <Route exact path="/" component={Home} />
             <PrivateRoute path="/mynotes" component={MyNotes} />
             <PrivateRoute path="/favorites" component={Favorites} />
-            <Route exact path="/note/:id" component={Note} />
+            <Route exact path="/note/:id" component={NotePage} />
             <Route path="/signup" component={SignUp} />
             <Route path="/signin" component={SignIn} />
             <Route path="/video" component={Video} />

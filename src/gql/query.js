@@ -10,6 +10,7 @@ const GET_NOTES = gql`
                 createdAt
                 content
                 favoriteCount
+                isRemoved
                 author {
                     username
                     id
@@ -46,6 +47,7 @@ const GET_MY_NOTES = gql`
       content
       createdAt
       favoriteCount
+      isRemoved
       author {
         username
         id
@@ -66,6 +68,7 @@ const GET_MY_FAVORITES = gql`
       content
       createdAt
       favoriteCount
+      isRemoved
       author {
         username
         id

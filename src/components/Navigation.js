@@ -58,16 +58,19 @@ const Navigation = () => {
                 <Home />{' '}<Link to="/">Home</Link>
                 </li>
                 <li>
-                <MyNote />{' '}<Link to="/mynotes">My Notes</Link>
+                <Video />{' '}<Link to="/video">Video</Link>
                 </li>
                 <li>
                 <Heart />{' '}<Link to="/favorites">Favorites</Link>
                 </li>
                 <li>
-                <Video />{' '}<Link to="/video">Video</Link>
+                <MyNote />{' '}<Link to="/mynotes">My Note</Link>
                 </li>
                 <li>
                 <EditPen />{' '}<Link to="/new">New Note</Link>
+                </li>
+                <li>
+                <EditPen />{' '}<Link to="/account">Account</Link>
                 </li>
             </NavList>
         </Nav>

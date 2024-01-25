@@ -83,11 +83,22 @@ const GET_ME = gql`
     query me {
         me {
             id
+            username
             favorites {
                 id
             }
         }
     }
+`;
+
+const GET_PROFILE = gql`
+    query me {
+      me {
+          id
+          username
+          avatar
+      }
+  }
 `;
 
 const IS_LOGGED_IN = gql`
@@ -102,5 +113,6 @@ export {
     GET_MY_NOTES, 
     GET_MY_FAVORITES, 
     GET_ME,
+    GET_PROFILE,
     IS_LOGGED_IN
 };

@@ -43,26 +43,9 @@ const Header = props => {
             
             <UserState>
                 {data.isLoggedIn ? (
-                    [
-                    <ButtonAsLink
-                    onClick={() => {
-                      // remove the token
-                      localStorage.removeItem('token');
-                      // clear the application's cache
-                      client.resetStore();
-                      // update local state
-                      client.writeData({ data: { isLoggedIn: false } });
-                      // redirect the user to the homepage
-                      props.history.push('/');
-                    }}
-                  >
-                    logout 
-                    </ButtonAsLink>,
-                    ' ',
-                    <Link to='/video'>Video</Link>,
-                    ' ',
+                
                     <Link to='/new'>新筆記<EditPen /></Link>
-                    ]   
+                       
                     ) : (
                     <p>
                         <Link to={'/signin'}>Sign In</Link> or{' '}

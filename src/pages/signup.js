@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useMutation, useApolloClient, gql } from '@apollo/client';
 
 import UserForm from '../components/UserForm';

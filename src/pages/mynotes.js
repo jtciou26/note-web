@@ -19,7 +19,7 @@ const MyNotes = () => {
 
     if (filteredNotes !== 0) {
       return <NoteFeed notes={filteredNotes} />;
-    }else {
+    } else {
       return <p>no note yet</p>
     }
 };

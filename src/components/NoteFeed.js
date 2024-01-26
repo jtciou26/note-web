@@ -10,6 +10,10 @@ const NoteWrapper = styled.div`
     border-bottom: 1px solid #f5f4f0;
 `;
 
+const LinkWrapper = styled.div`
+    float:right;
+`
+
 import Note from './Note';
 
 const NoteFeed = ({ notes }) => {
@@ -18,7 +22,9 @@ const NoteFeed = ({ notes }) => {
             {notes.map(note => (
                 <NoteWrapper key={note.id}>
                     <Note note={note} />
-                    <Link to={`note/${note.id}`}>筆記連結</Link>
+                    <LinkWrapper>
+                        <Link to={`note/${note.id}`}>連結</Link>
+                    </LinkWrapper>
                 </NoteWrapper>
             ))}
         </div>

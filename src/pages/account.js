@@ -1,23 +1,38 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_ME, GET_PROFILE } from '../gql/query';
+import { IS_LOGGED_IN } from '../gql/query';
 import Profile from '../components/Profile';
+import ButtonAsLink from '../components/ButtonAsLink';
+import Button from '../components/Button';
 
-
-
-const Account = ({me}) => {
-
-        useEffect(() => {
-            document.tilte = 'Account 帳號';
-        
+const Account = () => {
+    useEffect(() => {
+        document.title = 'Account';
     });
 
-    const { loading, error, data } = useQuery(GET_PROFILE);
+    const { loading, error, data, client } = useQuery(IS_LOGGED_IN);
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error! User not found</p>;
-    return <Profile me={data.me} />
+    return (
+        <React.Fragment>
+            <Profile/>
+            {data.isLoggedIn ? (
+                <Button
+                    onClick={() => {
+                    // remove the token
+                    localStorage.removeItem('token');
+                    // clear the application's cache
+                    client.resetStore();
+                    // update local state
+                    client.writeData({ data: { isLoggedIn: false } });
+                    }}
+                >
+                    Logout
+                </Button>
+                ) : <p></p>
+            }   
+        </React.Fragment>
+    );
 };
-
-
 export default Account;
 

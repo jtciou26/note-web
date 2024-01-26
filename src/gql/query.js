@@ -97,6 +97,8 @@ const GET_PROFILE = gql`
           id
           username
           avatar
+          email
+          createdAt
       }
   }
 `;

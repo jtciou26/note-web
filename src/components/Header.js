@@ -4,7 +4,6 @@ import logo from '../img/miffy.png';
 import { useQuery } from '@apollo/client';
 import { Link, withRouter } from 'react-router-dom';
 
-import ButtonAsLink from './ButtonAsLink';
 import { IS_LOGGED_IN } from '../gql/query';
 import { EditPen } from './Icons/EditPen';
 

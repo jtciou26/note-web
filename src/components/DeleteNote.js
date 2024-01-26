@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom';
 import ButtonAsLink from './ButtonAsLink';
 import { DELETE_NOTE } from '../gql/mutation';
 import { GET_NOTES, GET_MY_NOTES } from '../gql/query';
-import { TrashCan } from './Icons/TrashCan';
 
 const DeleteNote = props => {
     const [deleteNote] = useMutation(DELETE_NOTE, {
@@ -17,7 +16,7 @@ const DeleteNote = props => {
             props.history.push('/mynotes');
         }
     });
-return <ButtonAsLink onClick={deleteNote} style={{color: 'lightgray'}}>刪除<TrashCan /></ButtonAsLink>
+return <ButtonAsLink onClick={deleteNote} style={{color: 'lightgray'}}>刪除</ButtonAsLink>
 
 }
 

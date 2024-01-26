@@ -6,6 +6,7 @@ import { Heart } from './Icons/Heart';
 import { MyNote } from './Icons/MyNote';
 import { Video } from './Icons/Video';
 import { EditPen } from './Icons/EditPen';
+import { Account } from './Icons/Account';
 
 const Nav =  styled.nav`
     padding: 1em;
@@ -58,8 +59,9 @@ const Navigation = () => {
                 <Home />{' '}<Link to="/">Home</Link>
                 </li>
                 <li>
-                <Video />{' '}<Link to="/video">Video</Link>
+                <EditPen />{' '}<Link to="/new">New Note</Link>
                 </li>
+                
                 <li>
                 <Heart />{' '}<Link to="/favorites">Favorites</Link>
                 </li>
@@ -67,10 +69,10 @@ const Navigation = () => {
                 <MyNote />{' '}<Link to="/mynotes">My Note</Link>
                 </li>
                 <li>
-                <EditPen />{' '}<Link to="/new">New Note</Link>
+                <Account />{' '}<Link to="/account">Account</Link>
                 </li>
                 <li>
-                <EditPen />{' '}<Link to="/account">Account</Link>
+                <Video />{' '}<Link to="/video">Video</Link>
                 </li>
             </NavList>
         </Nav>

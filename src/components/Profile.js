@@ -1,62 +1,65 @@
 import React from 'react';
 import styled from 'styled-components';
-import ButtonAsLink from './ButtonAsLink';
 
 import { useQuery } from '@apollo/client';
 import { format } from 'date-fns';
-import { GET_PROFILE, IS_LOGGED_IN } from '../gql/query';
+
+import { GET_PROFILE } from '../gql/query';
 
 const Wrapper = styled.div`
   border: 1px solid #f5f4f0;
+  border-radius: 10px;
   max-width: 500px;
   padding: 1em;
   margin: 0 auto;
 `;
 
-//將筆記中繼資料樣式化
-const Cotainer = styled.div`
-    label,
-    input {
-        width: 100%;
-        margin-bottom: 1em;
-      }
+const Feild = styled.div`
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 100%;
+        &:not(:first-child) {
+    margin-top: 8px;
+    }
+`;
+
+const Label = styled.label`
+    max-width: 220px;
+    color: darkGray;
+`;
+
+const Input = styled.div`
+    width: 70%;
+    margin-left: 20px;
+    min-height: 24px;
 `;
 
 const Profile = ({ me }) => {
-    const { loading, error, data, client } = useQuery(IS_LOGGED_IN);
+    const { loading, error, data } = useQuery(GET_PROFILE);
     if (loading) return 'Loading...';
     if (error) return <p>Error! </p>;
     return ( 
        <Wrapper>
-        {data.isLoggedIn ? (
-            <p>
+            <Feild>
                 <img
-                    src={me.avatar}
-                    alt={me.username}
+                    src={data.me.avatar}
+                    alt={data.me.username}
                     height="50px"
                 />  
-                <Cotainer>
-                    <label>Username:</label>
-                    {me.username} 
-                </Cotainer>
-                <ButtonAsLink
-                    onClick={() => {
-                    // remove the token
-                    localStorage.removeItem('token');
-                    // clear the application's cache
-                    client.resetStore();
-                    // update local state
-                    client.writeData({ data: { isLoggedIn: false } });
-                    }}
-                >
-                    Logout
-                </ButtonAsLink>
-            </p>
-                ) : (<p></p>)
-        }
-
-
-            
+            </Feild>
+            <Feild>
+                <Label>暱&emsp;&emsp;稱</Label>{' '}
+                <Input>{data.me.username} </Input>
+            </Feild>    
+            <Feild>
+                <Label>信&emsp;&emsp;箱</Label>{' '}
+                <Input>{data.me.email} </Input>
+            </Feild>
+            <Feild>    
+                <Label>註冊時間</Label>{' '}
+                <Input>{format(data.me.createdAt, 'MMM Do YYYY')}</Input>
+            </Feild>
         </Wrapper>
     );
 };

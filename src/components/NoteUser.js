@@ -5,6 +5,7 @@ import { GET_ME } from '../gql/query';
 import DeleteNote from './DeleteNote';
 import FavoriteNote from './FavoriteNote';
 import { EditPen } from './Icons/EditPen';
+import { TrashCan } from './Icons/TrashCan';
 
 const NoteUser = props => {
     const { loading, error, data } = useQuery(GET_ME);
@@ -14,8 +15,8 @@ const NoteUser = props => {
         <React.Fragment>
             {data.me.id === props.note.author.id && (
                 <React.Fragment>
-                    <DeleteNote noteId={props.note.id} />{'  '}
-                    <Link to={`/edit/${props.note.id}`}>編輯<EditPen /></Link>
+                    <TrashCan /><DeleteNote noteId={props.note.id} />{'  '}
+                    <EditPen /><Link to={`/edit/${props.note.id}`}>編輯</Link>
                 </React.Fragment>
             )}{'  '}
             <FavoriteNote

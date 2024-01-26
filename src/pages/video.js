@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import RwdYoutube from '../components/RwdYoutube'
 import styled from 'styled-components';
 
@@ -13,6 +13,10 @@ const Wrapper = styled.div`
 `;
 
 export default function Video() {
+
+  useEffect(() => {
+    document.title = 'Video'
+});
 
   const [url, setUrl] = useState('');
   const [error, setError] = useState('');

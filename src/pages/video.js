@@ -3,13 +3,22 @@ import RwdYoutube from '../components/RwdYoutube'
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    max-width: 800px;
-    margin: 0 auto;
-    input { 
-        width: 75%;
-        margin-bottom: 16px;
-        margin-right: 4px;
-    }
+  max-width: 800px;
+  margin: 0 auto;
+  input { 
+      width: 75%;
+      margin: 16px 4px;
+  }
+`;
+
+const VideoContainer = styled.div`
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid #f5f4f0;
+  border-radius: 10px;
+  padding-bottom: ${(props) => (props.aspectRatio ? `${props.aspectRatio}%` : '56.25%')};
+  height: 0;
 `;
 
 export default function Video() {
@@ -29,27 +38,39 @@ export default function Video() {
   };
 
   const extractVideoId = (url) => {
-    // Regular expression to match the video ID from YouTube URLs
-    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-    var match = url.match(regExp);
+    var videoRegex = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    const match = url.match(videoRegex);
     return (match&&match[7].length==11)? match[7] : false;
   };
 
+  const extractPlaylistId = (url) => {
+    const playlistRegex = url.match(/^.*(youtu.be\/|list=)([^#\&\?]*).*/);
+    return playlistRegex ? playlistRegex[2] : null;
+  };
+
   const validateYoutubeUrl = (url) => {
-    const videoId = extractVideoId(url);
-    return !!videoId; // Returns true if videoId is not null or undefined
+    const youtubeRegex = /(?:youtu\.be\/|youtube\.com\/(?:[^/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=|.*[?&]list=)|youtu\.be\/|y\/|\/v\/|\/e\/|watch\?.*(?:v|&v|embed|feature=player_embedded&v)=)([^"'&?\/\s]{11}|[^"'&?\/\s]{18,})/;
+    const match = url.match(youtubeRegex);
+    return !!match; // Returns true if URL is valid
   };
 
   const handleLoadClick = () => {
     if (validateYoutubeUrl(url)) {
-    // Extract the video ID from the provided URL
-        const videoId = extractVideoId(url);
-      // Concatenate the video ID with the base URL
+
+      const videoId = extractVideoId(url);
+      const playlistId = extractPlaylistId(url);
+
+      if (videoId) { 
         const embedUrl = `https://www.youtube.com/embed/${videoId}`;
-      // Update the URL in the state
         setUrl(embedUrl);
-        setError('');
-        setLoadClicked(true);
+      } else if (playlistId) {
+        // Playlist URL
+        const embedUrl = `https://www.youtube.com/embed?listType=playlist&list=${playlistId}`;
+        setUrl(embedUrl);
+      }
+
+      setError('');
+      setLoadClicked(true);
     } else {
       // Handle invalid URL or show an error message
       setError('Invalid YouTube URL');
@@ -74,11 +95,12 @@ export default function Video() {
         onKeyDown={handleKeyDown}
       />
       <button onClick={handleLoadClick}>Load</button>
-      
       {error && <p style={{ color: 'red' }}>{error}</p>}
 
-      {/* Pass the updated URL to the RwdYoutube component */}
-      {loadClicked && <RwdYoutube src={url} />}
+      <VideoContainer aspectRatio={loadClicked ? null : 56.25}>
+        {/* Pass the updated URL to the RwdYoutube component */}
+        {loadClicked && <RwdYoutube src={url} />}
+      </VideoContainer>
     </Wrapper>
   );
 }

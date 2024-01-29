@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { IS_LOGGED_IN } from '../gql/query';
 import Profile from '../components/Profile';
-import ButtonAsLink from '../components/ButtonAsLink';
 import Button from '../components/Button';
 
 const Account = () => {

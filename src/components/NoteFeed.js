@@ -23,7 +23,7 @@ const NoteFeed = ({ notes }) => {
                 <NoteWrapper key={note.id}>
                     <Note note={note} />
                     <LinkWrapper>
-                        <Link to={`note/${note.id}`}>連結</Link>
+                        <Link to={`note/${note.id}`}>連結↗</Link>
                     </LinkWrapper>
                 </NoteWrapper>
             ))}

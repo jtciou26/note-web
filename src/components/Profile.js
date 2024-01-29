@@ -58,7 +58,7 @@ const Profile = ({ me }) => {
             </Feild>
             <Feild>    
                 <Label>註冊時間</Label>{' '}
-                <Input>{format(data.me.createdAt, 'MMM Do YYYY')}</Input>
+                <Input>{format(data.me.createdAt, 'YYYY-MMM-DD')}</Input>
             </Feild>
         </Wrapper>
     );

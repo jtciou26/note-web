@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { Home } from './Icons/Home';
-import { Heart } from './Icons/Heart';
-import { MyNote } from './Icons/MyNote';
-import { Video } from './Icons/Video';
-import { EditPen } from './Icons/EditPen';
-import { Account } from './Icons/Account';
+
+import { HomeOutlined, FormOutlined, HeartOutlined, LikeOutlined, UserOutlined, YoutubeOutlined } from '@ant-design/icons';
+
 
 const Nav =  styled.nav`
     padding: 1em;
@@ -56,23 +53,22 @@ const Navigation = () => {
         <Nav>
             <NavList>
                 <li>
-                <Home />{' '}<Link to="/">Home</Link>
+                <HomeOutlined />{' '}<Link to="/">Home</Link>
                 </li>
                 <li>
-                <EditPen />{' '}<Link to="/new">New Note</Link>
-                </li>
-                
-                <li>
-                <Heart />{' '}<Link to="/favorites">Favorites</Link>
+                <FormOutlined />{' '}<Link to="/new">New Note</Link>
                 </li>
                 <li>
-                <MyNote />{' '}<Link to="/mynotes">My Note</Link>
+                <HeartOutlined />{' '}<Link to="/favorites">Favorites</Link>
                 </li>
                 <li>
-                <Account />{' '}<Link to="/account">Account</Link>
+                <LikeOutlined />{' '}<Link to="/mynotes">My Note</Link>
                 </li>
                 <li>
-                <Video />{' '}<Link to="/video">Video</Link>
+                <UserOutlined />{' '}<Link to="/account">Account</Link>
+                </li>
+                <li>
+                <YoutubeOutlined />{' '}<Link to="/video">Video</Link>
                 </li>
             </NavList>
         </Nav>

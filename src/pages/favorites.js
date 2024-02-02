@@ -15,7 +15,7 @@ const Favorites = () => {
     if (error) return `Error! $ {error.message}`;
     
     const filteredNotes = data.me.favorites.filter(note => !note.isRemoved);
-    console.log([filteredNotes.length, data.me.favorites.length]);
+
     if (filteredNotes.length !== 0) {
       return <NoteFeed notes={filteredNotes} />;
     } else {

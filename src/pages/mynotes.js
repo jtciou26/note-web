@@ -17,7 +17,7 @@ const MyNotes = () => {
 
     const filteredNotes = data.me.notes.filter(note => !note.isRemoved);
 
-    if (filteredNotes !== 0) {
+    if (filteredNotes.length !== 0) {
       return <NoteFeed notes={filteredNotes} />;
     } else {
       return <p>no note yet</p>

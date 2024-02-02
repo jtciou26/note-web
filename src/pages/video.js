@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import RwdYoutube from '../components/RwdYoutube'
 import styled from 'styled-components';
+import { Button, Input } from 'antd';
 
 const Wrapper = styled.div`
   max-width: 800px;
@@ -87,16 +88,14 @@ export default function Video() {
 
   return (
     <Wrapper>
-      <input
-        type='text'
-        placeholder="貼上 YouTube 網址"
+      <Input placeholder="貼上 YouTube 網址"
         value={url}
         onChange={handleUrlChange}
         onKeyDown={handleKeyDown}
       />
-      <button onClick={handleLoadClick}>Load</button>
+      <Button onClick={handleLoadClick}>Load</Button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-
+    <p>https://www.youtube.com/embed/68zFgY2bLu8</p>
       <VideoContainer aspectRatio={loadClicked ? null : 56.25}>
         {/* Pass the updated URL to the RwdYoutube component */}
         {loadClicked && <RwdYoutube src={url} />}

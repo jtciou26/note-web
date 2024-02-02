@@ -5,13 +5,14 @@ import { useQuery } from '@apollo/client';
 import { format } from 'date-fns';
 
 import { GET_PROFILE } from '../gql/query';
+import { Avatar, List } from 'antd';
 
 const Wrapper = styled.div`
   border: 1px solid #f5f4f0;
   border-radius: 10px;
   max-width: 500px;
   padding: 1em;
-  margin: 0 auto;
+  margin: 3% auto ;
 `;
 
 const Feild = styled.div`
@@ -42,10 +43,11 @@ const Profile = ({ me }) => {
     return ( 
        <Wrapper>
             <Feild>
-                <img
+                <Avatar
                     src={data.me.avatar}
                     alt={data.me.username}
-                    height="50px"
+                    shape="square"
+                    size="large"
                 />  
             </Feild>
             <Feild>

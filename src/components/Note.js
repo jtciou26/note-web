@@ -5,6 +5,7 @@ import NoteUser from './NoteUser';
 import { format } from 'date-fns';
 import { useQuery } from '@apollo/client';
 import { IS_LOGGED_IN } from '../gql/query';
+import { Avatar } from 'antd';
 
 //防止筆記寬度超過800
 const StyledNote = styled.article`
@@ -39,11 +40,12 @@ const Note = ({ note }) => {
         <StyledNote>
             <MetaData>
                 <MetaInfo>
-                    <img
+                    <Avatar
                         src={note.author.avatar}
                         alt={note.author.username}
-                        height="50px"
-                    />  
+                        shape="square"
+                        size="large"
+                    />    
                 </MetaInfo>
                 <MetaInfo>
                     <em>by</em> {note.author.username} <br />

@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import Header from './Header';
 import Navigation from './Navigation';
+import { FloatButton } from 'antd';
+import { EditOutlined } from '@ant-design/icons';
 
 const Wrapper = styled.div`
 @media (min-width: 700px) {
@@ -36,6 +38,10 @@ const Layout = ({children}) => {
             <Wrapper>
                 <Navigation />
                 <Main>{children}</Main>
+                <FloatButton 
+                    href="/new" 
+                    icon={<EditOutlined />}
+                    />
             </Wrapper>
         </React.Fragment>    
     );

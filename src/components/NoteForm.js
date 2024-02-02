@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import Button from './Button';
+import { Button, Flex, Form, Input } from 'antd';
 
 const Wrapper = styled.div`
     max-width: 800px;
@@ -9,53 +9,52 @@ const Wrapper = styled.div`
     height: 100%;
 `;
 
-const Form = styled.form`
-    height: 100%;
-`;
-
-const TextArea = styled.textarea`
-    width: 100%;
-    height: 90%;
-`;
-
 const NoteForm = props => {
-    //設定表單的預設狀態
-    const [value, setValue] = useState({ content: props.content || '' });
+    
+    const [form] = Form.useForm(); 
+    const [value, setValue] = useState({ content: '' });
 
-    //用戶輸入後更新狀態
-    const onChange = event => {
-        setValue ({
-            ...value,
-            [event.target.name]: event.target.value
+    useEffect(() => {
+        if (props.content) {
+          setValue({ content: props.content });
+        }
+      }, [props.content]);
+
+    const onFinish = (values) => {
+        props.action({
+          variables: {
+            ...values,
+          },
         });
-    };
+      };
 
-return (
-    <Wrapper>
-        <Form
-            onSubmit={e => {
-                e.preventDefault();
-                props.action({
-                    variables: {
-                        ...value
-                    }
-                });
-            }}
-        >
-
-            <TextArea
+    return (
+        <Wrapper>
+          <Form form={form} onFinish={onFinish} initialValues={{ content: props.content }}>
+            <Form.Item
+              name="content"
+              rules={[
+                {
+                  required: true,
+                  message: 'Please enter your note content!',
+                },
+              ]}
+            >
+              <Input.TextArea
                 required
-                type="text"
                 name="content"
-                placeholder="Note content"
-                value={value.content}
-                onChange={onChange}
-            />
+                autoSize={{ minRows: 28, maxRows: 30 }}
+                placeholder="隨手記些東西"
+              />
+            </Form.Item>
+            <Flex align="center" justify="center">
+              <Button size="large" htmlType="submit">儲存 </Button>
+            </Flex>
+          </Form>
+        </Wrapper>
+      );
+    };
+    
+    export default NoteForm;
 
-        <Button type="submit">Save</Button>
-        </Form>
-    </Wrapper>
-    );
-};
 
-export default NoteForm;

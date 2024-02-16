@@ -3,6 +3,8 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import styled from 'styled-components';
 import NoteUser from './NoteUser';
+import CollapsibleSection from './CollapsibleSection';
+
 import { format } from 'date-fns';
 import { useQuery } from '@apollo/client';
 import { IS_LOGGED_IN } from '../gql/query';
@@ -62,7 +64,7 @@ const Note = ({ note }) => {
           </UserActions>
         )}
       </MetaData>
-      <Markdown remarkPlugins={[remarkGfm]} children={note.content} />
+      <CollapsibleSection content={note.content} />
     </StyledNote>
   );
 };

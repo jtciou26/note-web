@@ -1,25 +1,30 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import {
+  HomeOutlined,
+  FormOutlined,
+  HeartOutlined,
+  LikeOutlined,
+  UserOutlined,
+  YoutubeOutlined
+} from '@ant-design/icons';
 
-import { HomeOutlined, FormOutlined, HeartOutlined, LikeOutlined, UserOutlined, YoutubeOutlined } from '@ant-design/icons';
+const Nav = styled.nav`
+  padding: 1em;
+  background: #f5f4f0;
 
+  @media (max-width: 700px) {
+    padding-top: 64px;
+    height: 0px;
+  }
 
-const Nav =  styled.nav`
-    padding: 1em;
-    background: #f5f4f0;
-
-    @media (max-width: 700px) {
-        padding-top: 64px; 
-        height: 0px;
-    }
-
-    @media (min-width: 700px) {
-        position: fixed;
-        width: 220px;
-        height: calc(100% - 64px);
-        overflow-y: auto;
-    }
+  @media (min-width: 700px) {
+    position: fixed;
+    width: 220px;
+    height: calc(100% - 64px);
+    overflow-y: auto;
+  }
 `;
 
 const NavList = styled.ul`
@@ -49,30 +54,31 @@ const NavList = styled.ul`
 `;
 
 const Navigation = () => {
-    return (
-        <Nav>
-            <NavList>
-                <li>
-                <HomeOutlined />{' '}<Link to="/">Home</Link>
-                </li>
-                <li>
-                <FormOutlined />{' '}<Link to="/new">New Note</Link>
-                </li>
-                <li>
-                <HeartOutlined />{' '}<Link to="/favorites">Favorites</Link>
-                </li>
-                <li>
-                <LikeOutlined />{' '}<Link to="/mynotes">My Note</Link>
-                </li>
-                <li>
-                <UserOutlined />{' '}<Link to="/account">Account</Link>
-                </li>
-                <li>
-                <YoutubeOutlined />{' '}<Link to="/video">Video</Link>
-                </li>
-            </NavList>
-        </Nav>
-    );
+  return (
+    <Nav>
+      <NavList>
+        <li>
+          <HomeOutlined /> <Link to="/">Home</Link>
+        </li>
+        <li>
+          <FormOutlined /> <Link to="/new">New Note</Link>
+        </li>
+
+        <li>
+          <HeartOutlined /> <Link to="/favorites">Favorites</Link>
+        </li>
+        <li>
+          <LikeOutlined /> <Link to="/mynotes">My Note</Link>
+        </li>
+        <li>
+          <UserOutlined /> <Link to="/account">Account</Link>
+        </li>
+        <li>
+          <YoutubeOutlined /> <Link to="/video">Video</Link>
+        </li>
+      </NavList>
+    </Nav>
+  );
 };
 
 export default Navigation;

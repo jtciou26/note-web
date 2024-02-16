@@ -7,7 +7,7 @@ import { FloatButton } from 'antd';
 import { EditOutlined } from '@ant-design/icons';
 
 const Wrapper = styled.div`
-@media (min-width: 700px) {
+  @media (min-width: 700px) {
     display: flex;
     top: 64px;
     position: relative;
@@ -15,36 +15,33 @@ const Wrapper = styled.div`
     width: 100%;
     flex: auto;
     flex-direction: column;
-};
+  }
 `;
 
 const Main = styled.main`
-    position: fixed;
-    height: calc(100% - 64px);
-    width: 100%;
-    padding: 1em;
-    overflow-y: auto;
-    @media (min-width: 700px) {
-        flex:1;
-        margin-left: 220px;
-        width: calc(100% - 220px);
-    };
+  position: fixed;
+  height: calc(100% - 64px);
+  width: 100%;
+  padding: 1em;
+  overflow-y: auto;
+  @media (min-width: 700px) {
+    flex: 1;
+    margin-left: 220px;
+    width: calc(100% - 220px);
+  }
 `;
 
-const Layout = ({children}) => {
-    return (
-        <React.Fragment>
-            <Header />
-            <Wrapper>
-                <Navigation />
-                <Main>{children}</Main>
-                <FloatButton 
-                    href="/new" 
-                    icon={<EditOutlined />}
-                    />
-            </Wrapper>
-        </React.Fragment>    
-    );
+const Layout = ({ children }) => {
+  return (
+    <React.Fragment>
+      <Header />
+      <Wrapper>
+        <Navigation />
+        <Main>{children}</Main>
+        <FloatButton href="/new" icon={<EditOutlined />} />
+      </Wrapper>
+    </React.Fragment>
+  );
 };
 
 export default Layout;

@@ -1,9 +1,7 @@
 import React from 'react';
-import Markdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
 import styled from 'styled-components';
 import NoteUser from './NoteUser';
-import CollapsibleSection from './CollapsibleSection';
+import ShowMore from './ShowMore';
 
 import { format } from 'date-fns';
 import { useQuery } from '@apollo/client';
@@ -64,7 +62,7 @@ const Note = ({ note }) => {
           </UserActions>
         )}
       </MetaData>
-      <CollapsibleSection content={note.content} />
+      <ShowMore content={note.content} />
     </StyledNote>
   );
 };

@@ -1,8 +1,8 @@
 import { gql } from '@apollo/client';
 
 const EDIT_NOTE = gql`
-  mutation updateNote($id: ID!, $content: String!)  {
-    updateNote(id:$id, content: $content) {
+  mutation updateNote($id: ID!, $content: String!) {
+    updateNote(id: $id, content: $content) {
       id
       content
       createdAt
@@ -16,26 +16,31 @@ const EDIT_NOTE = gql`
         id
       }
     }
-  } 
+  }
 `;
 
 const DELETE_NOTE = gql`
-  mutation deleteNote($id: ID!)  {
-    deleteNote(id:$id)
+  mutation deleteNote($id: ID!) {
+    deleteNote(id: $id)
   }
 `;
 
 const TOGGLE_FAVORITE = gql`
-  mutation toggleFavorite($id: ID!)  {
-    toggleFavorite(id:$id) {
+  mutation toggleFavorite($id: ID!) {
+    toggleFavorite(id: $id) {
       id
       favoriteCount
     }
   }
 `;
 
-export { 
-    EDIT_NOTE,
-    DELETE_NOTE,
-    TOGGLE_FAVORITE
-};
+const UPDATE_USERNAME = gql`
+  mutation updateUsername($id: ID!, $username: String!) {
+    updateUsername(id: $id, username: $username) {
+      id
+      username
+    }
+  }
+`;
+
+export { EDIT_NOTE, DELETE_NOTE, TOGGLE_FAVORITE, UPDATE_USERNAME };

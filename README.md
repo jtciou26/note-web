@@ -1,17 +1,16 @@
+# Outline
+
+[This project](https://toegazer.onrender.com) is mainly based on JavaScript Everywhere by Adam D. Scott (see below), with some modifications contributed by ChatGPT and I. 
+
 <img src="cover.png" width="200" align="right" />
 
 # JavaScript Everywhere Web Application
 
 This repository contains code examples for the web application chapters of [_JavaScript Everywhere_](https://www.jseverywhere.io/) by Adam D. Scott, published by O'Reilly Media
 
-## Getting Help
-
-The best place to get help is our Spectrum channel, [spectrum.chat/jseverywhere](https://spectrum.chat/jseverywhere).
-
 ## Directory Structure
 
 - `/src` If you are following along with the book, this is the directory where you should perform your development.
-- `/solutions` This directory contains the solutions for each chapter. If you get stuck, these are available for you to consult.
 - `/final` This directory contains the final working project
 
 ## To Run the Application

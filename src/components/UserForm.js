@@ -11,13 +11,13 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
-const UserForm = props => {
+const UserForm = (props) => {
   const [form] = Form.useForm(); // Use Form hook
-  const onFinish = values => {
+  const onFinish = (values) => {
     props.action({
       variables: {
-        ...values
-      }
+        ...values,
+      },
     });
   };
 
@@ -29,26 +29,28 @@ const UserForm = props => {
       <Form
         name="basic"
         labelCol={{
-          span: 4
+          span: 4,
         }}
         wrapperCol={{
-          span: 16
+          span: 16,
         }}
         style={{
-          maxWidth: 800
+          maxWidth: 800,
         }}
         autoComplete="off"
         onFinish={onFinish}
       >
         {props.formType === 'signup' && (
           <Form.Item
-            label="Username"
+            label="暱稱"
             name="username"
+            validateTrigger="onBlur"
             rules={[
               {
+                max: 30,
                 required: true,
-                message: 'Please input your username!'
-              }
+                message: '暱稱為必填且不超過30個字元',
+              },
             ]}
           >
             <Input />
@@ -56,26 +58,28 @@ const UserForm = props => {
         )}
 
         <Form.Item
-          label="Email"
+          label="信箱"
           name="email"
+          validateTrigger="onBlur"
           rules={[
             {
               required: true,
-              message: 'Please input your email!'
-            }
+              message: '請填寫正確信箱',
+              type: 'email',
+            },
           ]}
         >
           <Input />
         </Form.Item>
 
         <Form.Item
-          label="Password"
+          label="密碼"
           name="password"
           rules={[
             {
               required: true,
-              message: 'Please input your password!'
-            }
+              message: '密碼為必填',
+            },
           ]}
         >
           <Input.Password />

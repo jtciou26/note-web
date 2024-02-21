@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_NOTES } from '../gql/query';
-import { Button, Flex } from 'antd';
+import { Button, Flex, Skeleton } from 'antd';
 import NoteFeed from '../components/NoteFeed';
 
 const Home = () => {
@@ -10,10 +10,19 @@ const Home = () => {
   });
   const { data, loading, error, fetchMore } = useQuery(GET_NOTES);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading)
+    return (
+      <Skeleton
+        loading={loading}
+        active
+        avatar
+        style={{ maxWidth: '800px', margin: '0 auto' }}
+        paragraph={{ rows: 10 }}
+      />
+    );
   if (error) return <p>Error!</p>;
 
-  const filteredNotes = data.noteFeed.notes.filter(note => !note.isRemoved);
+  const filteredNotes = data.noteFeed.notes.filter((note) => !note.isRemoved);
 
   return (
     //新增 react fragment 元素以提供父元素
@@ -28,7 +37,7 @@ const Home = () => {
             onClick={() =>
               fetchMore({
                 variables: {
-                  cursor: data.noteFeed.cursor
+                  cursor: data.noteFeed.cursor,
                 },
                 updateQuery: (previousResult, { fetchMoreResult }) => {
                   return {
@@ -38,12 +47,12 @@ const Home = () => {
                       //將新舊結果合併
                       notes: [
                         ...previousResult.noteFeed.notes,
-                        ...fetchMoreResult.noteFeed.notes
+                        ...fetchMoreResult.noteFeed.notes,
                       ],
-                      __typename: 'noteFeed'
-                    }
+                      __typename: 'noteFeed',
+                    },
                   };
-                }
+                },
               })
             }
           >

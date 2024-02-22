@@ -6,7 +6,7 @@ import DeleteNote from './DeleteNote';
 import FavoriteNote from './FavoriteNote';
 import { EditOutlined } from '@ant-design/icons';
 
-const NoteUser = (props) => {
+const NoteUser = props => {
   const { loading, error, data } = useQuery(GET_ME);
   if (loading) return 'Loading...';
   if (error) return <p>Error! </p>;

@@ -19,7 +19,7 @@ const LinkWrapper = styled.div`
 const NoteFeed = ({ notes }) => {
   return (
     <div>
-      {notes.map((note) => (
+      {notes.map(note => (
         <NoteWrapper key={note.id}>
           <Note note={note} />
           <LinkWrapper>

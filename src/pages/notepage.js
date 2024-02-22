@@ -5,12 +5,12 @@ import Note from '../components/Note';
 import { GET_NOTE } from '../gql/query';
 
 //將屬性props物件傳遞至元件 動態查詢
-const NotePage = (props) => {
+const NotePage = props => {
   // 將在 url 中找到的id儲存為變數
   const id = props.match.params.id;
   //查詢hook 以變數形式傳遞id值
   const { loading, error, data, refetch } = useQuery(GET_NOTE, {
-    variables: { id },
+    variables: { id }
   });
   const [note, setNote] = useState(null);
   //use the useState hook to manage the note state.

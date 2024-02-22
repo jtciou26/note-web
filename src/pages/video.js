@@ -95,7 +95,7 @@ export default function Video() {
       />
       <Button onClick={handleLoadClick}>Load</Button>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <p>"https://www.youtube.com/watch?v=${videoId}`</p>
+      <p>https://www.youtube.com/embed/68zFgY2bLu8</p>
       <VideoContainer aspectRatio={loadClicked ? null : 56.25}>
         {/* Pass the updated URL to the RwdYoutube component */}
         {loadClicked && <RwdYoutube src={url} />}

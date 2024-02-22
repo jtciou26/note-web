@@ -8,16 +8,16 @@ import ButtonAsLink from './ButtonAsLink';
 import { DELETE_NOTE } from '../gql/mutation';
 import { GET_NOTES, GET_MY_NOTES } from '../gql/query';
 
-const DeleteNote = (props) => {
+const DeleteNote = props => {
   const [deleteNote] = useMutation(DELETE_NOTE, {
     variables: {
-      id: props.noteId,
+      id: props.noteId
     },
     refetchQueries: [{ query: GET_MY_NOTES, GET_NOTES }],
-    onCompleted: (data) => {
+    onCompleted: data => {
       props.history.push('/mynotes');
       message.success('刪除成功');
-    },
+    }
   });
   return (
     <Popconfirm

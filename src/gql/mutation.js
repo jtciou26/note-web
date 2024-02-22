@@ -53,4 +53,13 @@ const TOGGLE_FAVORITE = gql`
   }
 `;
 
-export { EDIT_NOTE, DELETE_NOTE, TOGGLE_FAVORITE };
+const UPDATE_USERNAME = gql`
+  mutation updateUsername($id: ID!, $username: String!) {
+    updateUsername(id: $id, username: $username) {
+      id
+      username
+    }
+  }
+`;
+
+export { NEW_NOTE, EDIT_NOTE, DELETE_NOTE, TOGGLE_FAVORITE, UPDATE_USERNAME };

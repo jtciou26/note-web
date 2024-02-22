@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { Button, Flex, Form, Input, message } from 'antd';
+import { Button, Flex, Form, Input } from 'antd';
 
 const Wrapper = styled.div`
   max-width: 800px;
@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   height: 100%;
 `;
 
-const NoteForm = (props) => {
+const NoteForm = props => {
   const [form] = Form.useForm();
   const [value, setValue] = useState({ content: '' });
 
@@ -19,13 +19,12 @@ const NoteForm = (props) => {
     }
   }, [props.content]);
 
-  const onFinish = (values) => {
+  const onFinish = values => {
     props.action({
       variables: {
-        ...values,
-      },
+        ...values
+      }
     });
-    message.success('儲存成功');
   };
 
   return (
@@ -40,15 +39,15 @@ const NoteForm = (props) => {
           rules={[
             {
               required: true,
-              message: 'Please enter your note content!',
-            },
+              message: 'Please enter your note content!'
+            }
           ]}
         >
           <Input.TextArea
             required
             name="content"
-            autoSize={{ minRows: 25, maxRows: 30 }}
             placeholder="隨手記些東西"
+            style={{ height: '75vh', overflow: 'auto' }}
           />
         </Form.Item>
         <Flex align="center" justify="center">

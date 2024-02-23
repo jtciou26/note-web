@@ -9,63 +9,65 @@ import Layout from '../components/Layout';
 import Home from './home';
 import SignUp from './signup';
 import SignIn from './signin';
-import Account from './account'
+import Account from './account';
 import MyNotes from './mynotes';
 import Favorites from './favorites';
 import NotePage from './notepage';
 import NewNote from './new';
 import EditNote from './edit';
-import Video from './video'
+import Video from './video';
+import Test from './test';
 
 const IS_LOGGED_IN = gql`
   {
     isLoggedIn @client
   }
-  `;
+`;
 
 //定義路徑
 const Pages = () => {
-    return (
-        <Router>
-          <Layout>
-            <Route exact path="/" component={Home} />
-            <PrivateRoute path="/mynotes" component={MyNotes} />
-            <PrivateRoute path="/favorites" component={Favorites} />
-            <Route exact path="/note/:id" component={NotePage} />
-            <Route path="/signup" component={SignUp} />
-            <Route path="/signin" component={SignIn} />
-            <Route path="/video" component={Video} />
-            <PrivateRoute path="/new" component={NewNote} />
-            <PrivateRoute path="/account" component={Account} />
-            <PrivateRoute exact path="/edit/:id" component={EditNote} />
-          </Layout>
-        </Router>
-    );
+  return (
+    <Router>
+      <Layout>
+        <Route exact path="/" component={Home} />
+        <PrivateRoute path="/mynotes" component={MyNotes} />
+        <PrivateRoute path="/favorites" component={Favorites} />
+        <Route exact path="/note/:id" component={NotePage} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/signin" component={SignIn} />
+        <Route path="/video" component={Video} />
+        <Route path="/test" component={Test} />
+        <PrivateRoute path="/new" component={NewNote} />
+        <PrivateRoute path="/account" component={Account} />
+        <PrivateRoute exact path="/edit/:id" component={EditNote} />
+      </Layout>
+    </Router>
+  );
 };
 
-  const PrivateRoute = ({ component: Component, ...rest }) => {
-    const { loading, error, data } = useQuery(IS_LOGGED_IN);
-    // if the data is loading, display a loading message
-    if (loading) return <p>Loading...</p>;
-    // if there is an error fetching the data, display an error message
-    if (error) return <p>Error!</p>;
-    return (
-      <Route
-        {...rest}
-        render={props =>
-          data.isLoggedIn === true ? (
-            <Component {...props} />
-          ) : (
-            <Redirect
-              to={{
-                pathname: '/signin',
-                state: { from: props.location }
-              }}
-            />
-          )
-        }
-      />
-    );
-  };
+const PrivateRoute = ({ component: Component, ...rest }) => {
+  const { loading, error, data } = useQuery(IS_LOGGED_IN);
+  // if the data is loading, display a loading message
+  if (loading) return <p>Loading...</p>;
+  // if there is an error fetching the data, display an error message
+  if (error) return <p>Error!</p>;
+  return (
+    <Route
+      {...rest}
+      render={props =>
+        data.isLoggedIn === true ? (
+          <Component {...props} />
+        ) : (
+          <Redirect
+            to={{
+              pathname: '/signin',
+              state: { from: props.location }
+            }}
+          />
+        )
+      }
+    />
+  );
+};
 
 export default Pages;

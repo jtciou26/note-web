@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import {
   ApolloClient,
   ApolloProvider,
   createHttpLink,
-  InMemoryCache,
-  gql
+  InMemoryCache
 } from '@apollo/client';
 import { setContext } from 'apollo-link-context';
 
@@ -36,31 +36,13 @@ const client = new ApolloClient({
 });
 
 //檢查是否有本機權杖 現在可以使用@client指示、在程式任何位置以GraphQL查詢的形式存取isLoggedIn
-
-const initialData = {
+const data = {
   isLoggedIn: !!localStorage.getItem('token')
 };
 //在初始載入時間寫入快取資料
-client.writeQuery({
-  query: gql`
-    query InitialData {
-      isLoggedIn @client
-    }
-  `,
-  data: initialData
-});
-
+cache.writeData({ data });
 // 在重設快取後寫入快取資料
-client.onResetStore(() => {
-  client.writeQuery({
-    query: gql`
-      query InitialData {
-        isLoggedIn @client
-      }
-    `,
-    data: initialData
-  });
-});
+client.onResetStore(() => cache.writeData({ data }));
 
 const App = () => {
   return (

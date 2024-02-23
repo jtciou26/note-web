@@ -21,14 +21,7 @@ const SignUp = props => {
       //將JWT資料儲存權杖在localStorage中
       localStorage.setItem('token', data.signUp);
       //更新本機快取
-      client.writeQuery({
-        query: gql`
-          query IsLoggedIn {
-            isLoggedIn @client
-          }
-        `,
-        data: { isLoggedIn: true }
-      });
+      client.writeData({ data: { isLoggedIn: true } });
       //將使用者重新導向至首頁
       props.history.push('/');
     }

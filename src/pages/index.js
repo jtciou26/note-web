@@ -7,9 +7,9 @@ import Layout from '../components/Layout';
 
 //匯入路徑
 import Home from './home';
-import SignUp from './signup';
-import SignIn from './signin';
-import Account from './account';
+//import SignUp from './signup';
+//import SignIn from './signin';
+//import Account from './account';
 import MyNotes from './mynotes';
 import Favorites from './favorites';
 import NotePage from './notepage';
@@ -33,12 +33,10 @@ const Pages = () => {
         <PrivateRoute path="/mynotes" component={MyNotes} />
         <PrivateRoute path="/favorites" component={Favorites} />
         <Route exact path="/note/:id" component={NotePage} />
-        <Route path="/signup" component={SignUp} />
-        <Route path="/signin" component={SignIn} />
+
         <Route path="/video" component={Video} />
         <Route path="/test" component={Test} />
         <PrivateRoute path="/new" component={NewNote} />
-        <PrivateRoute path="/account" component={Account} />
         <PrivateRoute exact path="/edit/:id" component={EditNote} />
       </Layout>
     </Router>

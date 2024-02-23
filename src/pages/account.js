@@ -25,7 +25,14 @@ const Account = () => {
               // clear the application's cache
               client.resetStore();
               // update local state
-              client.writeData({ data: { isLoggedIn: false } });
+              client.writeQuery({
+                query: gql`
+                  query IsLoggedIn {
+                    isLoggedIn @client
+                  }
+                `,
+                data: { isLoggedIn: false }
+              });
             }}
           >
             登出

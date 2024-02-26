@@ -12,16 +12,11 @@ const cancel = e => {
 };
 
 const Test = () => (
-  <Popconfirm
-    title="Delete the task"
-    description="Are you sure to delete this task?"
-    onConfirm={confirm}
-    onCancel={cancel}
-    okText="Yes"
-    cancelText="No"
-  >
-    <Button danger>Delete</Button>
-  </Popconfirm>
+  <React.Fragment>
+    <Popconfirm title="Delete the task" onConfirm={confirm} onCancel={cancel}>
+      <Button danger>Delete</Button>
+    </Popconfirm>
+  </React.Fragment>
 );
 
 export default Test;

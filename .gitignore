@@ -65,6 +65,7 @@ typings/
 
 # built files
 dist
+.parcel-cache
 .cache
 
 # cypress videos & screenshots

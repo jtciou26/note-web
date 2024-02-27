@@ -8,9 +8,8 @@ import {
   InMemoryCache
 } from '@apollo/client';
 import { setContext } from 'apollo-link-context';
-
-import GlobalStyle from '/components/GlobalStyle';
-import Pages from '/pages';
+import GlobalStyle from './components/GlobalStyle';
+import Pages from './pages/index';
 
 //配置API URI快取
 const uri = process.env.API_URI;

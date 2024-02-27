@@ -11,7 +11,7 @@ const ShowMore = ({ content }) => {
 
   return (
     <div>
-      <Markdown remarkPlugins={[remarkGfm]}>
+      <Markdown>
         {expanded
           ? content
           : `${content.substring(0, 200)}${content.length > 200 ? '...' : ''}`}

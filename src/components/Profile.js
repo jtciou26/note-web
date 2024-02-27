@@ -58,7 +58,18 @@ const Profile = () => {
           <Text type="secondary" style={{ fontSize: '16px' }}>
             暱&emsp;&emsp;稱
           </Text>
-          <Text style={{ fontSize: '16px', marginLeft: '30px' }}>
+          <Text
+            style={{
+              fontSize: '16px',
+              marginLeft: '30px',
+              display: 'inline-block',
+              width: '350px'
+            }}
+            editable={{
+              onChange: handleUsernameChange
+            }}
+            ellipsis={true}
+          >
             {data.me.username}
           </Text>
         </Paragraph>

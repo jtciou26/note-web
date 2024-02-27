@@ -20,9 +20,15 @@ const DeleteNote = props => {
     }
   });
   return (
-    <Popconfirm title="delete?" onConfirm={deleteNote}>
+    <Popconfirm
+      title="確定刪除筆記嗎"
+      onConfirm={deleteNote}
+      okText="確定"
+      cancelText="取消"
+    >
       <ButtonAsLink style={{ color: 'lightgray' }}>
-        <DeleteOutlined /> 刪除
+        <DeleteOutlined />
+        刪除
       </ButtonAsLink>
     </Popconfirm>
   );

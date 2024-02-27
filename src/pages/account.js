@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { IS_LOGGED_IN } from '../gql/query';
 import Profile from '../components/Profile';
-import { Button, Flex } from 'antd';
+import { Button, Row } from 'antd';
 
 const Account = () => {
   useEffect(() => {
@@ -16,7 +16,7 @@ const Account = () => {
     <React.Fragment>
       <Profile />
       {data.isLoggedIn && (
-        <Flex align="center" justify="center">
+        <Row justify="center">
           <Button
             size="large"
             onClick={() => {
@@ -30,7 +30,7 @@ const Account = () => {
           >
             登出
           </Button>
-        </Flex>
+        </Row>
       )}
     </React.Fragment>
   );

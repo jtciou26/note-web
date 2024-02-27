@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Button, Flex, Form, Input } from 'antd';
+import { Button, Form, Input, Row } from 'antd';
 
 const Wrapper = styled.div`
   max-width: 600px;
@@ -23,9 +23,9 @@ const UserForm = props => {
 
   return (
     <Wrapper>
-      <Flex align="center" justify="center">
+      <Row justify="center">
         {props.formType === 'signup' ? <h2>註冊</h2> : <h2>登入</h2>}
-      </Flex>
+      </Row>
       <Form
         name="basic"
         labelCol={{
@@ -84,11 +84,11 @@ const UserForm = props => {
         >
           <Input.Password />
         </Form.Item>
-        <Flex align="center" justify="center">
-          <Button htmlType="submit" size="large">
-            送出
+        <Row justify="center">
+          <Button size="large" htmlType="submit">
+            儲存
           </Button>
-        </Flex>
+        </Row>
       </Form>
     </Wrapper>
   );

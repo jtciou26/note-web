@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-import { Button, Flex, Form, Input } from 'antd';
+import { Button, Form, Input, Row } from 'antd';
 
 const Wrapper = styled.div`
   max-width: 800px;
@@ -50,11 +50,11 @@ const NoteForm = props => {
             style={{ height: '75vh', overflow: 'auto' }}
           />
         </Form.Item>
-        <Flex align="center" justify="center">
+        <Row justify="center">
           <Button size="large" htmlType="submit">
             儲存
           </Button>
-        </Flex>
+        </Row>
       </Form>
     </Wrapper>
   );

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Header from './Header';
 import Navigation from './Navigation';
-import { EditOutlined } from '@ant-design/icons';
+import FloatMenu from './FloatMenu';
 
 const Wrapper = styled.div`
   @media (min-width: 700px) {
@@ -37,6 +37,7 @@ const Layout = ({ children }) => {
       <Wrapper>
         <Navigation />
         <Main>{children}</Main>
+        <FloatMenu />
       </Wrapper>
     </React.Fragment>
   );

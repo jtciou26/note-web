@@ -9,9 +9,18 @@ const ShowMore = ({ content }) => {
     setExpanded(!expanded);
   };
 
+  function LinkRenderer(props) {
+    console.log({ props });
+    return (
+      <a href={props.href} target="_blank" rel="noreferrer">
+        {props.children}
+      </a>
+    );
+  }
+
   return (
     <React.Fragment>
-      <Markdown remarkPlugins={[remarkGfm]}>
+      <Markdown remarkPlugins={[remarkGfm]} components={{ a: LinkRenderer }}>
         {expanded
           ? content
           : `${content.substring(0, 200)}${content.length > 200 ? '...' : ''}`}

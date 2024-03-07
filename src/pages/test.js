@@ -1,22 +1,17 @@
 import React from 'react';
+import ReactDom from 'react-dom';
+import Markdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
-import { Button, message, Popconfirm } from 'antd';
+const Test = () => {
+  const markdown1 = `Just a link: www.nasa.gov.`;
+  const markdown2 = `# Hi, *Pluto*!`;
 
-const confirm = e => {
-  console.log(e);
-  message.success('Click on Yes');
+  return (
+    <React.Fragment>
+      <Markdown remarkPlugins={[remarkGfm]}>{markdown1}</Markdown>
+    </React.Fragment>
+  );
 };
-const cancel = e => {
-  console.log(e);
-  message.error('Click on No');
-};
-
-const Test = () => (
-  <React.Fragment>
-    <Popconfirm title="Delete the task" onConfirm={confirm} onCancel={cancel}>
-      <Button danger>Delete</Button>
-    </Popconfirm>
-  </React.Fragment>
-);
 
 export default Test;

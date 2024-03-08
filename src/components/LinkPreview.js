@@ -12,7 +12,7 @@ function LinkPreview({ url }) {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:4000/metadata?url=${encodeURIComponent(url)}`
+          `${process.env.METADATA_API_URI}?url=${encodeURIComponent(url)}`
         );
         const data = await response.text();
 

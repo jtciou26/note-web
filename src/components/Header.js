@@ -8,7 +8,7 @@ import { IS_LOGGED_IN } from '../gql/query';
 
 const HeaderBar = styled.header`
   width: 100%;
-  padding: 0.5em 1em;
+  padding: 8px 16px;
   display: flex;
   height: 64px;
   position: fixed;

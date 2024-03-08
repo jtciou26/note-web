@@ -17,7 +17,7 @@ const StyledNote = styled.article`
 
 //將筆記中繼資料樣式化
 const MetaData = styled.div`
-  @media (min-width: 500px) {
+  @media (min-width: 370px) {
     display: flex;
     align-items: top;
   }

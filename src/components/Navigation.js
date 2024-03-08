@@ -16,6 +16,7 @@ const Nav = styled.nav`
 
   @media (max-width: 700px) {
     padding-top: 64px;
+    padding-bottom: 2px;
     height: 0px;
   }
 

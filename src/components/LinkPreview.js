@@ -14,18 +14,20 @@ function LinkPreview({ url }) {
         const response = await fetch(
           `${process.env.METADATA_API_URI}?url=${encodeURIComponent(url)}`
         );
+
         const data = await response.text();
 
-        const isYouTubeVideo = isYouTubeURL(url);
-        if (isYouTubeVideo) {
-          const videoId = extractYouTubeVideoId(url);
-          const videoThumbnail = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+        // Check if the URL ends with a common image file extension
+        const isImage = /\.(jpeg|jpg|gif|png)$/i.test(url);
 
+        if (isImage) {
           setPreviewData({
-            videoId,
-            videoThumbnail
+            image: url
           });
+          setLoading(false);
+          return;
         } else {
+          // Parse metadata from HTML document
           const parser = new DOMParser();
           const doc = parser.parseFromString(data, 'text/html');
           const titleElement = doc.querySelector('title'); // chatgpt
@@ -48,7 +50,8 @@ function LinkPreview({ url }) {
           });
         }
       } catch (error) {
-        console.error('Failed to fetch link preview.');
+        console.error('Failed to fetch link preview:', error.message);
+        setError('Failed to fetch link preview');
       } finally {
         setLoading(false);
       }
@@ -56,19 +59,6 @@ function LinkPreview({ url }) {
 
     fetchData();
   }, [url]);
-
-  const isYouTubeURL = url => {
-    return /(?:\/embed\/|\/watch\?v=|\/(?:embed\/|v\/|watch\?.*v=|youtu\.be\/|embed\/|v=))([^&?#]+)/.test(
-      url
-    );
-  };
-
-  const extractYouTubeVideoId = url => {
-    const match = url.match(
-      /(?:\/embed\/|\/watch\?v=|\/(?:embed\/|v\/|watch\?.*v=|youtu\.be\/|embed\/|v=))([^&?#]+)/
-    );
-    return match ? match[1] : '';
-  };
 
   if (loading) {
     return <p>Loading...</p>;
@@ -86,21 +76,13 @@ function LinkPreview({ url }) {
     window.open(url, '_blank');
   };
 
-  if (previewData.videoId) {
-    return (
-      <div onClick={handleClick} style={{ cursor: 'pointer' }}>
-        <img src={previewData.videoThumbnail} alt="Video Thumbnail" />
-      </div>
-    );
-  }
-
   return (
     <div onClick={handleClick} style={{ cursor: 'pointer' }}>
       <Card
         style={{
           width: 640
         }}
-        cover={<img alt="example" src={previewData.image} />}
+        cover={<img src={previewData.image} />}
       >
         <Meta title={previewData.title} description={previewData.description} />
       </Card>

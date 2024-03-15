@@ -7,7 +7,8 @@ import {
   HeartOutlined,
   LikeOutlined,
   UserOutlined,
-  YoutubeOutlined
+  YoutubeOutlined,
+  RedditOutlined
 } from '@ant-design/icons';
 
 const Nav = styled.nav`
@@ -76,6 +77,9 @@ const Navigation = () => {
         </li>
         <li>
           <YoutubeOutlined /> <Link to="/video">Video</Link>
+        </li>
+        <li>
+          <RedditOutlined /> <Link to="/preview">Preview</Link>
         </li>
       </NavList>
     </Nav>

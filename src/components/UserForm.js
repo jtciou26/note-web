@@ -1,7 +1,7 @@
 //註冊登入頁
 import React from 'react';
 import styled from 'styled-components';
-
+import Gravatar from '../components/Gravatar';
 import { Button, Form, Input, Row } from 'antd';
 
 const Wrapper = styled.div`
@@ -86,8 +86,12 @@ const UserForm = props => {
         </Form.Item>
         <Row justify="center">
           <Button size="large" htmlType="submit">
-            儲存
+            送出
           </Button>
+        </Row>
+        <br />
+        <Row justify="center">
+          <Gravatar />
         </Row>
       </Form>
     </Wrapper>

@@ -3,7 +3,7 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Typography } from 'antd';
 
-const ShowMore = ({ content }) => {
+const NoteContent = ({ content }) => {
   const [expanded, setExpanded] = useState(false);
   const toggleExpanded = () => {
     setExpanded(!expanded);
@@ -33,4 +33,4 @@ const ShowMore = ({ content }) => {
   );
 };
 
-export default ShowMore;
+export default NoteContent;

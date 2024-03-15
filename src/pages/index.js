@@ -17,6 +17,7 @@ import NewNote from './new';
 import EditNote from './edit';
 import Video from './video';
 import Preview from './preview';
+import Test from './test';
 
 const IS_LOGGED_IN = gql`
   {
@@ -37,6 +38,7 @@ const Pages = () => {
         <Route path="/signin" component={SignIn} />
         <Route path="/video" component={Video} />
         <Route path="/preview" component={Preview} />
+        <Route path="/test" component={Test} />
         <PrivateRoute path="/new" component={NewNote} />
         <PrivateRoute path="/account" component={Account} />
         <PrivateRoute exact path="/edit/:id" component={EditNote} />

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import NoteUser from './NoteUser';
-import ShowMore from './ShowMore';
+import NoteContent from './NoteContent';
 
 import { format } from 'date-fns';
 import { useQuery } from '@apollo/client';
@@ -62,7 +62,7 @@ const Note = ({ note }) => {
           </UserActions>
         )}
       </MetaData>
-      <ShowMore content={note.content} />
+      <NoteContent content={note.content} />
     </StyledNote>
   );
 };

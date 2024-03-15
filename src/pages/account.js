@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { IS_LOGGED_IN } from '../gql/query';
-import Profile from '../components/Profile';
+import UserContent from '../components/UserContent';
 import { Button, Row } from 'antd';
 
 const Account = () => {
@@ -14,7 +14,7 @@ const Account = () => {
   if (error) return <p>Error! User not found</p>;
   return (
     <React.Fragment>
-      <Profile />
+      <UserContent />
       {data.isLoggedIn && (
         <Row justify="center">
           <Button

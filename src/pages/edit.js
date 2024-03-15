@@ -7,6 +7,10 @@ import { EDIT_NOTE } from '../gql/mutation';
 import { message } from 'antd';
 
 const EditNote = props => {
+  useEffect(() => {
+    document.title = 'Edit Note - Toegazer';
+  });
+
   // 將在 url 找到的id儲存為變數
   const id = props.match.params.id;
   // 定義註記查詢

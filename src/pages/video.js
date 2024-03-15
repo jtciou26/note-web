@@ -25,7 +25,7 @@ const VideoContainer = styled.div`
 
 export default function Video() {
   useEffect(() => {
-    document.title = 'Video';
+    document.title = 'Video - Toegazer';
   });
 
   const [url, setUrl] = useState('');

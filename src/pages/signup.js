@@ -11,7 +11,7 @@ const SIGNUP_USER = gql`
 
 const SignUp = props => {
   useEffect(() => {
-    document.tilte = 'Sign Up 註冊';
+    document.tilte = 'Sign Up - Toegazer';
   });
 
   const client = useApolloClient();

@@ -6,6 +6,10 @@ import { GET_NOTE } from '../gql/query';
 
 //將屬性props物件傳遞至元件 動態查詢
 const NotePage = props => {
+  useEffect(() => {
+    document.title = 'Note - Toegazer';
+  });
+
   // 將在 url 中找到的id儲存為變數
   const id = props.match.params.id;
   //查詢hook 以變數形式傳遞id值

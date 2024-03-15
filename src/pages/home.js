@@ -6,7 +6,7 @@ import NoteFeed from '../components/NoteFeed';
 
 const Home = () => {
   useEffect(() => {
-    document.title = 'Home - Notedly';
+    document.title = 'Home - Toegazer';
   });
   const { data, loading, error, fetchMore } = useQuery(GET_NOTES);
 

@@ -8,7 +8,7 @@ import { message } from 'antd';
 
 const NewNote = props => {
   useEffect(() => {
-    document.title = 'New Note';
+    document.title = 'New Note - Toegazer';
   });
 
   const [data, { loading, error }] = useMutation(NEW_NOTE, {

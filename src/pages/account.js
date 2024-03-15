@@ -6,7 +6,7 @@ import { Button, Row } from 'antd';
 
 const Account = () => {
   useEffect(() => {
-    document.title = 'Account';
+    document.title = 'Account - Toegazer';
   });
 
   const { loading, error, data, client } = useQuery(IS_LOGGED_IN);

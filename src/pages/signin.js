@@ -11,7 +11,7 @@ const SIGNIN_USER = gql`
 
 const SignIn = props => {
   useEffect(() => {
-    document.tilte = 'Sign In - Notedly';
+    document.tilte = 'Sign In - Toegazer';
   });
 
   const client = useApolloClient();

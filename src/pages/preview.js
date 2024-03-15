@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LinkPreview from '../components/LinkPreview';
 import styled from 'styled-components';
 import { Button, Input } from 'antd';
@@ -13,6 +13,10 @@ const Wrapper = styled.div`
 `;
 
 const Preview = () => {
+  useEffect(() => {
+    document.title = 'Preview - Toegazer';
+  });
+
   const [url, setUrl] = useState('');
   const [submittedUrl, setSubmittedUrl] = useState('');
 

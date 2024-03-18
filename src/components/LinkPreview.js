@@ -30,18 +30,19 @@ function LinkPreview({ url }) {
           // Parse metadata from HTML document
           const parser = new DOMParser();
           const doc = parser.parseFromString(data, 'text/html');
-          const titleElement = doc.querySelector('title'); // chatgpt
-          const descriptionElement = doc.querySelector(
-            'meta[name="description"]'
+
+          const ogTitle = doc.querySelector('meta[property="og:title"]');
+          const ogDescription = doc.querySelector(
+            'meta[property="og:description"]'
           );
-          const imageElement = doc.querySelector('meta[property="og:image"]');
-          if (!titleElement || !descriptionElement || !imageElement) {
+          const ogImage = doc.querySelector('meta[property="og:image"]');
+          if (!ogTitle || !ogDescription || !ogImage) {
             throw new Error('Missing metadata');
           }
 
-          const title = titleElement.textContent || '';
-          const description = descriptionElement.getAttribute('content') || '';
-          const image = imageElement.getAttribute('content') || '';
+          const title = ogTitle.getAttribute('content') || '';
+          const description = ogDescription.getAttribute('content') || '';
+          const image = ogImage.getAttribute('content') || '';
 
           setPreviewData({
             title,

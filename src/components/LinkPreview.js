@@ -21,7 +21,8 @@ function LinkPreview({ url }) {
 
         if (isImage) {
           setPreviewData({
-            image: url
+            image: url,
+            title: 'an image file'
           });
           setLoading(false);
           return;
@@ -75,16 +76,20 @@ function LinkPreview({ url }) {
   };
 
   return (
-    <div onClick={handleClick} style={{ cursor: 'pointer' }}>
-      <Card
-        style={{
-          width: 640
-        }}
-        cover={<img src={previewData.image} />}
-      >
-        <Meta title={previewData.title} description={previewData.description} />
-      </Card>
-    </div>
+    <Card
+      onClick={handleClick}
+      style={{
+        width: 640
+      }}
+      cover={
+        <img
+          src={previewData.image}
+          style={{ maxHeight: '400px', width: '638px', objectFit: 'cover' }}
+        />
+      }
+    >
+      <Meta title={previewData.title} description={previewData.description} />
+    </Card>
   );
 }
 

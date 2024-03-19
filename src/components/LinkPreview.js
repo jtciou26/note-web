@@ -84,7 +84,7 @@ function LinkPreview({ url }) {
       cover={
         <img
           src={previewData.image}
-          style={{ maxHeight: '400px', width: '638px', objectFit: 'cover' }}
+          style={{ maxHeight: '400px', width: '639px', objectFit: 'cover' }}
         />
       }
     >

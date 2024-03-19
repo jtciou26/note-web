@@ -2,11 +2,24 @@ import React, { useState } from 'react';
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Typography } from 'antd';
+import ImageModal from './ImageModal';
 
 const NoteContent = ({ content }) => {
   const [expanded, setExpanded] = useState(false);
+  const [imageSrc, setImageSrc] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const [imageCache, setImageCache] = useState({});
+
   const toggleExpanded = () => {
     setExpanded(!expanded);
+  };
+
+  const handleImageHover = e => {
+    const link = e.target.href;
+    if (link && link.match(/\.(jpeg|jpg|gif|png)$/) !== null) {
+      setImageSrc(link);
+      setShowModal(true);
+    }
   };
 
   function LinkRenderer(props) {
@@ -18,7 +31,7 @@ const NoteContent = ({ content }) => {
   }
 
   return (
-    <React.Fragment>
+    <div onMouseOver={handleImageHover}>
       <Markdown remarkPlugins={[remarkGfm]} components={{ a: LinkRenderer }}>
         {expanded
           ? content
@@ -29,7 +42,20 @@ const NoteContent = ({ content }) => {
           {expanded ? 'Show less' : 'Show More'}
         </Typography.Link>
       )}
-    </React.Fragment>
+      {showModal && (
+        <ImageModal
+          onClose={() => setShowModal(false)}
+          width="400px"
+          height="auto"
+        >
+          <img
+            src={imageSrc}
+            alt="Modal"
+            style={{ maxWidth: '100%', maxHeight: '100%' }}
+          />
+        </ImageModal>
+      )}
+    </div>
   );
 };
 

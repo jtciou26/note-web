@@ -6,7 +6,6 @@ const { Meta } = Card;
 function LinkPreview({ url }) {
   const [previewData, setPreviewData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,6 +35,7 @@ function LinkPreview({ url }) {
             'meta[property="og:description"]'
           );
           const ogImage = doc.querySelector('meta[property="og:image"]');
+
           if (!ogTitle || !ogDescription || !ogImage) {
             throw new Error('Missing metadata');
           }
@@ -52,7 +52,6 @@ function LinkPreview({ url }) {
         }
       } catch (error) {
         console.error('Failed to fetch link preview:', error.message);
-        setError('Failed to fetch link preview');
       } finally {
         setLoading(false);
       }
@@ -63,10 +62,6 @@ function LinkPreview({ url }) {
 
   if (loading) {
     return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
   }
 
   if (!previewData) {
@@ -81,9 +76,10 @@ function LinkPreview({ url }) {
     <div onClick={handleClick} style={{ cursor: 'pointer' }}>
       <Card
         style={{
-          width: 640
+          width: 640,
+          height: 500
         }}
-        cover={<img src={previewData.image} />}
+        cover={<img src={previewData.image} height="80%" />}
       >
         <Meta title={previewData.title} description={previewData.description} />
       </Card>

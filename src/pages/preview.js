@@ -47,6 +47,8 @@ const Preview = () => {
       />
       <Button onClick={handleSubmit}>Submit</Button>
       <li>https://www.youtube.com/watch?v=68zFgY2bLu8</li>
+      <li>https://www.joseal.app</li>
+      <li>https://medium.com</li>
       <li>https://imgur.com/gallery/z3Nfndh</li>
       <li>https://i.imgur.com/cNx5ldQ.jpeg</li>
       <li>

@@ -31,17 +31,19 @@ function LinkPreview({ url }) {
           const doc = parser.parseFromString(data, 'text/html');
 
           const ogTitle = doc.querySelector('meta[property="og:title"]');
-          const ogDescription = doc.querySelector(
-            'meta[property="og:description"]'
-          );
+          const ogDes = doc.querySelector('meta[property="og:description"]');
           const ogImage = doc.querySelector('meta[property="og:image"]');
 
-          if (!ogTitle || !ogDescription || !ogImage) {
+          console.log(ogTitle);
+          console.log(ogDes);
+          console.log(ogImage);
+
+          if (!ogTitle || !ogDes || !ogImage) {
             throw new Error('Missing metadata');
           }
 
           const title = ogTitle.getAttribute('content') || '';
-          const description = ogDescription.getAttribute('content') || '';
+          const description = ogDes.getAttribute('content') || '';
           const image = ogImage.getAttribute('content') || '';
 
           setPreviewData({
@@ -76,10 +78,9 @@ function LinkPreview({ url }) {
     <div onClick={handleClick} style={{ cursor: 'pointer' }}>
       <Card
         style={{
-          width: 640,
-          height: 500
+          width: 640
         }}
-        cover={<img src={previewData.image} height="80%" />}
+        cover={<img src={previewData.image} />}
       >
         <Meta title={previewData.title} description={previewData.description} />
       </Card>

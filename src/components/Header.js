@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import logo from '../img/miffy.png';
 import { useQuery } from '@apollo/client';
-import { Link, useHistory, withRouter } from 'react-router-dom';
+import { Link, useHistory, useLocation, withRouter } from 'react-router-dom';
 
 import { IS_LOGGED_IN } from '../gql/query';
 
@@ -32,9 +32,12 @@ const Header = props => {
   //使用者已登入狀態的查詢勾點 包括參考Apollo的用庫端
   const { data, client } = useQuery(IS_LOGGED_IN);
   const history = useHistory();
+  const location = useLocation();
 
   const handleLogoClick = () => {
-    history.go(0);
+    if (location.pathname === '/') {
+      history.go(0);
+    }
   };
   return (
     <HeaderBar>

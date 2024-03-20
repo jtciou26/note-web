@@ -16,7 +16,7 @@ const FloatMenu = () => {
   const goPath = useHistory();
 
   return (
-    <React.Fragment>
+    <>
       <FloatButton.Group
         trigger="click"
         type="primary"
@@ -44,7 +44,7 @@ const FloatMenu = () => {
         />
         <FloatButton.BackTop />
       </FloatButton.Group>
-    </React.Fragment>
+    </>
   );
 };
 export default FloatMenu;

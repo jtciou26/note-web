@@ -81,7 +81,6 @@ const Home = () => {
       ) : (
         <p> No notes available</p>
       )}
-      ;
     </>
   );
 };

@@ -28,11 +28,11 @@ const SignUp = props => {
   });
 
   return (
-    <React.Fragment>
+    <>
       <UserForm action={signUp} formType="signup" />
       {loading && <p>Loading...</p>}
       {error && <p>Error creating an account</p>}
-    </React.Fragment>
+    </>
   );
 };
 

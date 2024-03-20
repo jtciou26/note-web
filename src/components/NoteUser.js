@@ -11,16 +11,16 @@ const NoteUser = props => {
   if (loading) return 'Loading...';
   if (error) return <p>Error! </p>;
   return (
-    <React.Fragment>
+    <>
       {data.me.id === props.note.author.id && (
-        <React.Fragment>
+        <>
           <DeleteNote noteId={props.note.id} />
           {'  '}
           <EditOutlined style={{ color: 'lightgray' }} />
           <Link to={`/edit/${props.note.id}`} style={{ color: 'lightgray' }}>
             編輯
           </Link>
-        </React.Fragment>
+        </>
       )}
       {'  '}
       <FavoriteNote
@@ -28,7 +28,7 @@ const NoteUser = props => {
         noteId={props.note.id}
         favoriteCount={props.note.favoriteCount}
       />
-    </React.Fragment>
+    </>
   );
 };
 

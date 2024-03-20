@@ -22,11 +22,11 @@ const NewNote = props => {
   });
 
   return (
-    <React.Fragment>
+    <>
       {loading && <p>Loading notes...</p>}
       {error && <p>Error saving the note</p>}
       <NoteForm action={data} />
-    </React.Fragment>
+    </>
   );
 };
 

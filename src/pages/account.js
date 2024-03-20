@@ -14,7 +14,7 @@ const Account = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error! User not found</p>;
   return (
-    <React.Fragment>
+    <>
       <Card
         style={{
           width: '500px',
@@ -43,7 +43,7 @@ const Account = () => {
       <Row justify="center">
         <Gravatar />
       </Row>
-    </React.Fragment>
+    </>
   );
 };
 export default Account;

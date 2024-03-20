@@ -32,14 +32,14 @@ const Main = styled.main`
 
 const Layout = ({ children }) => {
   return (
-    <React.Fragment>
+    <>
       <Header />
       <Wrapper>
         <Navigation />
         <Main>{children}</Main>
         <FloatMenu />
       </Wrapper>
-    </React.Fragment>
+    </>
   );
 };
 

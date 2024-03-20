@@ -30,7 +30,7 @@ const Profile = () => {
   if (error) return <p>Error! User not found </p>;
 
   return (
-    <React.Fragment>
+    <>
       <Avatar
         src={data.me.avatar}
         alt={data.me.username}
@@ -73,7 +73,7 @@ const Profile = () => {
           {format(data.me.createdAt, 'YYYY-MMM-DD')}
         </Text>
       </Paragraph>
-    </React.Fragment>
+    </>
   );
 };
 

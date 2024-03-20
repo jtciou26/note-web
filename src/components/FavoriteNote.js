@@ -23,7 +23,7 @@ const FavoriteNote = props => {
   });
 
   return (
-    <React.Fragment>
+    <>
       {favorited ? (
         <ButtonAsLink
           onClick={() => {
@@ -46,7 +46,7 @@ const FavoriteNote = props => {
         </ButtonAsLink>
       )}
       : {count}
-    </React.Fragment>
+    </>
   );
 };
 

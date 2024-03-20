@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  useHistory
+} from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 
 //匯入版面元件

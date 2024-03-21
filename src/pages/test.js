@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import Gravatar from '../components/Gravatar';
+import { Gravatar } from '../components/Misc';
 
 const Test = () => {
   useEffect(() => {

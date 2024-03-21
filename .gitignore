@@ -71,11 +71,4 @@ dist
 # cypress videos & screenshots
 cypress/videos
 cypress/screenshots
-src/components/CustomModal.js
-src/components/DeleteAlert copy.js
-src/components/DeleteNote copy.js
-src/components/DeleteAlert.js
-src/components/NoteUser copy.js
-src/components/antdLayout
-src/components/Layout2.js
-src/components/Menu.js
+

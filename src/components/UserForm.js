@@ -1,7 +1,7 @@
 //註冊登入頁
 import React from 'react';
 import styled from 'styled-components';
-import Gravatar from '../components/Gravatar';
+import { Gravatar } from '../components/Misc';
 import { Button, Form, Input, Row } from 'antd';
 
 const Wrapper = styled.div`

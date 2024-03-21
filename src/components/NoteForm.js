@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-
+import { MD } from '../components/Misc';
 import { Button, Form, Input, Row } from 'antd';
 
 const Wrapper = styled.div`
@@ -34,23 +34,16 @@ const NoteForm = props => {
         onFinish={onFinish}
         initialValues={{ content: props.content }}
       >
-        <Form.Item
-          name="content"
-          rules={[
-            {
-              required: true,
-              message: 'Please enter your note content!'
-            }
-          ]}
-        >
+        <Form.Item name="content">
           <Input.TextArea
             required
-            name="content"
             placeholder="隨手記些東西"
-            style={{ height: '75vh', overflow: 'auto' }}
+            style={{ height: '60vh', overflow: 'auto' }}
           />
         </Form.Item>
-        <Row justify="center">
+
+        <Row justify="space-around">
+          <MD />
           <Button size="large" htmlType="submit">
             儲存
           </Button>

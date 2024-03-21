@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { IS_LOGGED_IN } from '../gql/query';
 import UserContent from '../components/UserContent';
-import Gravatar from '../components/Gravatar';
+import { Gravatar } from '../components/Misc';
 import { Button, Card, Row } from 'antd';
 
 const Account = () => {

@@ -32,7 +32,15 @@ const NoteContent = ({ content }) => {
 
   return (
     <div onMouseOver={handleImageHover}>
-      <Markdown remarkPlugins={[remarkGfm]} components={{ a: LinkRenderer }}>
+      <Markdown
+        remarkPlugins={[remarkGfm]}
+        components={{
+          a: LinkRenderer,
+          img: ({ node, ...props }) => (
+            <img style={{ maxWidth: '100%' }} {...props} />
+          )
+        }}
+      >
         {expanded
           ? content
           : `${content.substring(0, 200)}${content.length > 200 ? '...' : ''}`}

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useMutation, useApolloClient, gql } from '@apollo/client';
-
+import { IS_LOGGED_IN } from '../gql/query';
 import UserForm from '../components/UserForm';
 
 const SIGNUP_USER = gql`
@@ -21,7 +21,10 @@ const SignUp = props => {
       //將JWT資料儲存權杖在localStorage中
       localStorage.setItem('token', data.signUp);
       //更新本機快取
-      client.writeData({ data: { isLoggedIn: true } });
+      client.writeQuery({
+        query: IS_LOGGED_IN,
+        data: true
+      });
       //將使用者重新導向至首頁
       props.history.push('/');
     }

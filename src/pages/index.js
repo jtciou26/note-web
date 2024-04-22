@@ -6,6 +6,7 @@ import {
   useHistory
 } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
+import { IS_LOGGED_IN } from '../gql/query';
 
 //匯入版面元件
 import Layout from '../components/Layout';
@@ -23,12 +24,6 @@ import EditNote from './edit';
 import Video from './video';
 import Preview from './preview';
 import Test from './test';
-
-const IS_LOGGED_IN = gql`
-  {
-    isLoggedIn @client
-  }
-`;
 
 //定義路徑
 const Pages = () => {

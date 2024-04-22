@@ -11,6 +11,23 @@ const Account = () => {
   });
 
   const { loading, error, data, client } = useQuery(IS_LOGGED_IN);
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+
+    // Update cache to set isLoggedIn to false
+    const logout = {
+      isLoggedIn: false
+    };
+
+    client.writeQuery({
+      query: IS_LOGGED_IN,
+      data: logout
+    });
+
+    client.resetStore();
+  };
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error! User not found</p>;
   return (
@@ -24,17 +41,7 @@ const Account = () => {
         <UserContent />
         {data.isLoggedIn && (
           <Row justify="center">
-            <Button
-              size="large"
-              onClick={() => {
-                // remove the token
-                localStorage.removeItem('token');
-                // clear the application's cache
-                client.resetStore();
-                // update local state
-                client.writeData({ data: { isLoggedIn: false } });
-              }}
-            >
+            <Button size="large" onClick={handleLogout}>
               登出
             </Button>
           </Row>

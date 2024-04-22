@@ -72,3 +72,4 @@ dist
 cypress/videos
 cypress/screenshots
 
+src/pages/metabase.js

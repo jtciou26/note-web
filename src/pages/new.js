@@ -11,7 +11,7 @@ const NewNote = props => {
     document.title = 'New Note - Toegazer';
   });
 
-  const [data, { loading, error }] = useMutation(NEW_NOTE, {
+  const [createNote, { loading, error }] = useMutation(NEW_NOTE, {
     //重新擷取 GET_NOTES查詢以更新快取
     refetchQueries: [{ query: GET_MY_NOTES }, { query: GET_NOTES }],
     onCompleted: data => {
@@ -21,11 +21,15 @@ const NewNote = props => {
     }
   });
 
+  const handleCreateNote = content => {
+    createNote({ variables: { content } });
+  };
+
   return (
     <>
       {loading && <p>Loading notes...</p>}
       {error && <p>Error saving the note</p>}
-      <NoteForm action={data} />
+      <NoteForm action={handleCreateNote} />
     </>
   );
 };

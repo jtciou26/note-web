@@ -20,11 +20,7 @@ const NoteForm = props => {
   }, [props.content]);
 
   const onFinish = values => {
-    props.action({
-      variables: {
-        ...values
-      }
-    });
+    props.action(values.content); // Pass the content directly
   };
 
   return (

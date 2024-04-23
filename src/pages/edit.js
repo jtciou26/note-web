@@ -20,9 +20,6 @@ const EditNote = props => {
   const { data: userdata } = useQuery(GET_ME);
   //square brackets are used to extract the first item of an array returned by the useMutation hook.
   const [editNote] = useMutation(EDIT_NOTE, {
-    variables: {
-      id
-    },
     onCompleted: () => {
       props.history.push(`/note/${id}`);
       message.success('儲存成功');
@@ -33,13 +30,17 @@ const EditNote = props => {
     refetch();
   }, [id, refetch]);
 
+  const handleEditNote = content => {
+    editNote({ variables: { id, content: content } });
+  };
+
   if (loading) return 'Loading...';
   if (error) return <p>Error! Note not found</p>;
   if (userdata.me.id !== data.note.author.id) {
     return <p>it's not yours.</p>;
   }
   //將資料和變動傳遞至表單元件
-  return <NoteForm content={data.note.content} action={editNote} />;
+  return <NoteForm content={data.note.content} action={handleEditNote} />;
 };
 
 export default EditNote;

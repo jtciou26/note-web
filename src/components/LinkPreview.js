@@ -35,10 +35,6 @@ function LinkPreview({ url }) {
           const ogDes = doc.querySelector('meta[property="og:description"]');
           const ogImage = doc.querySelector('meta[property="og:image"]');
 
-          console.log(ogTitle);
-          console.log(ogDes);
-          console.log(ogImage);
-
           if (!ogTitle || !ogDes || !ogImage) {
             throw new Error('Missing metadata');
           }

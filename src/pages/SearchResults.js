@@ -19,7 +19,7 @@ const SearchResults = () => {
   if (notes && notes.length !== 0) {
     return <NoteFeed notes={notes} />;
   } else {
-    return <p>no matched notes found</p>;
+    return <p>no matched notes found for "{keyword}"</p>;
   }
 };
 

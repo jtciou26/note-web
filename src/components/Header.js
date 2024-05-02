@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import logo from '../img/miffy.png';
 import { useQuery } from '@apollo/client';
 import { Link, useHistory, useLocation, withRouter } from 'react-router-dom';
-
+import SearchBar from './SearchBar';
 import { IS_LOGGED_IN } from '../gql/query';
 
 const HeaderBar = styled.header`
@@ -45,6 +45,7 @@ const Header = props => {
         <img src={logo} alt="Notedly Logo" height="45" />
       </Link>
       <LogoText>隨手記</LogoText>
+      <SearchBar />
 
       <UserState>
         {data.isLoggedIn ? (

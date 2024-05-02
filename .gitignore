@@ -73,3 +73,4 @@ cypress/videos
 cypress/screenshots
 
 src/pages/metabase.js
+src/pages/chatgpt.js

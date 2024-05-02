@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Route,
   Redirect,
-  useHistory
+  useHistory,
+  Switch
 } from 'react-router-dom';
 import { useQuery, gql } from '@apollo/client';
 import { IS_LOGGED_IN } from '../gql/query';
@@ -24,6 +25,7 @@ import EditNote from './edit';
 import Video from './video';
 import Preview from './preview';
 import Test from './test';
+import SearchResults from './searchresults';
 
 //定義路徑
 const Pages = () => {
@@ -39,6 +41,9 @@ const Pages = () => {
         <Route path="/video" component={Video} />
         <Route path="/preview" component={Preview} />
         <Route path="/test" component={Test} />
+        <Switch>
+          <Route path="/searchresults/:keyword" component={SearchResults} />
+        </Switch>
         <PrivateRoute path="/new" component={NewNote} />
         <PrivateRoute path="/account" component={Account} />
         <PrivateRoute exact path="/edit/:id" component={EditNote} />

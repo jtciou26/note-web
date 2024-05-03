@@ -5,6 +5,7 @@ import { useQuery } from '@apollo/client';
 import { Link, useHistory, useLocation, withRouter } from 'react-router-dom';
 import SearchBar from './SearchBar';
 import { IS_LOGGED_IN } from '../gql/query';
+import { FormOutlined } from '@ant-design/icons';
 
 const HeaderBar = styled.header`
   width: 100%;
@@ -24,7 +25,7 @@ const LogoText = styled.h1`
   display: inline;
 
   @media (max-width: 700px) {
-        display: hidden; 
+        display: none; 
 `;
 
 const UserState = styled.div`
@@ -52,7 +53,9 @@ const Header = props => {
 
       <UserState>
         {data.isLoggedIn ? (
-          <Link to="/new">新筆記</Link>
+          <Link to="/new">
+            <FormOutlined style={{ fontSize: '24px', color: 'gray' }} />
+          </Link>
         ) : (
           <p>
             <Link to={'/signin'}>Sign In</Link> or{' '}

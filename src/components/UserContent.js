@@ -3,17 +3,17 @@ import React from 'react';
 import { useMutation, useQuery } from '@apollo/client';
 import { format } from 'date-fns';
 
-import { GET_PROFILE } from '../gql/query';
+import { GET_ME } from '../gql/query';
 import { Avatar, Skeleton, Typography } from 'antd';
 import { UPDATE_USERNAME } from '../gql/mutation';
 
 const { Paragraph, Text } = Typography;
 
 const Profile = () => {
-  const { loading, error, data } = useQuery(GET_PROFILE);
+  const { loading, error, data } = useQuery(GET_ME);
 
   const [updateUsername] = useMutation(UPDATE_USERNAME, {
-    refetchQueries: [{ query: GET_PROFILE }]
+    refetchQueries: [{ query: GET_ME }]
   });
 
   const handleUsernameChange = async newUsername => {

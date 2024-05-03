@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
 import Note from './Note';
 
 const NoteWrapper = styled.div`
@@ -23,7 +22,7 @@ const NoteFeed = ({ notes }) => {
         <NoteWrapper key={note.id}>
           <Note note={note} />
           <LinkWrapper>
-            <Link to={`note/${note.id}`} style={{ color: 'lightgray' }}>
+            <Link to={`/note/${note.id}`} style={{ color: 'lightgray' }}>
               連結↗
             </Link>
           </LinkWrapper>

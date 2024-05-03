@@ -22,6 +22,9 @@ const LogoText = styled.h1`
   margin-left: 10px;
   padding: 0;
   display: inline;
+
+  @media (max-width: 700px) {
+        display: hidden; 
 `;
 
 const UserState = styled.div`

@@ -15,10 +15,10 @@ const SearchBar = () => {
 
   return (
     <Search
-      placeholder="input search text"
+      allowClear
       onSearch={handleSearch}
       style={{
-        width: 200,
+        width: '180px',
         marginLeft: 'auto'
       }}
     />

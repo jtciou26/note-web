@@ -7,10 +7,8 @@ import Hashtag from './Hashtag';
 
 const NoteContent = ({ content }) => {
   const [expanded, setExpanded] = useState(false);
-
   const [imageSrc, setImageSrc] = useState('');
   const [showModal, setShowModal] = useState(false);
-  const [imageCache, setImageCache] = useState({});
 
   const toggleExpanded = () => {
     setExpanded(!expanded);
@@ -30,27 +28,6 @@ const NoteContent = ({ content }) => {
         {props.children}
       </a>
     );
-  }
-
-  function HashtagRenderer(props) {
-    const content = props.children[0].props.children;
-    const hashtagRegex = /#(\w+)/g; // Regex to match hashtags
-    const hashtags = content.match(hashtagRegex);
-
-    if (hashtags && hashtags.length > 0) {
-      // 增加一個log 確認是否有抓到hashtag
-      console.log(hashtags);
-      return (
-        <>
-          {hashtags.map((hashtag, index) => (
-            <Hashtag key={index} hashtag={hashtag.substring(1)} /> // Remove the '#' symbol
-          ))}
-        </>
-      );
-    } else {
-      // If no hashtags are found, render the content as is
-      return content;
-    }
   }
 
   return (

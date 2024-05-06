@@ -3,9 +3,11 @@ import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { Typography } from 'antd';
 import ImageModal from './ImageModal';
+import Hashtag from './Hashtag';
 
 const NoteContent = ({ content }) => {
   const [expanded, setExpanded] = useState(false);
+
   const [imageSrc, setImageSrc] = useState('');
   const [showModal, setShowModal] = useState(false);
   const [imageCache, setImageCache] = useState({});
@@ -30,6 +32,27 @@ const NoteContent = ({ content }) => {
     );
   }
 
+  function HashtagRenderer(props) {
+    const content = props.children[0].props.children;
+    const hashtagRegex = /#(\w+)/g; // Regex to match hashtags
+    const hashtags = content.match(hashtagRegex);
+
+    if (hashtags && hashtags.length > 0) {
+      // 增加一個log 確認是否有抓到hashtag
+      console.log(hashtags);
+      return (
+        <>
+          {hashtags.map((hashtag, index) => (
+            <Hashtag key={index} hashtag={hashtag.substring(1)} /> // Remove the '#' symbol
+          ))}
+        </>
+      );
+    } else {
+      // If no hashtags are found, render the content as is
+      return content;
+    }
+  }
+
   return (
     <div onMouseOver={handleImageHover}>
       <Markdown
@@ -38,7 +61,27 @@ const NoteContent = ({ content }) => {
           a: LinkRenderer,
           img: ({ node, ...props }) => (
             <img style={{ maxWidth: '100%' }} {...props} />
-          )
+          ),
+          p(props) {
+            const { children } = props;
+            const content = React.Children.toArray(children).join('');
+            const hashtagRegex = /#(\w+)/g;
+            if (hashtagRegex.test(content)) {
+              return (
+                <p>
+                  {content.split(hashtagRegex).map((part, index) => {
+                    if (index % 2 === 0) {
+                      return part;
+                    } else {
+                      const hashtag = part.substring(0);
+                      return <Hashtag key={index} hashtag={hashtag} />;
+                    }
+                  })}
+                </p>
+              );
+            }
+            return <p>{children}</p>;
+          }
         }}
       >
         {expanded

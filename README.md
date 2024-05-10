@@ -1,37 +1,36 @@
 # Outline
 
-[This project](https://toegazer.onrender.com) is mainly based on JavaScript Everywhere by Adam D. Scott (see below), with some modifications contributed by ChatGPT and I. 
+This project is designed to provide a platform for users to take notes. Based on the book, JavaScript Everywhere by Adam D. Scott (see below), with some modifications contributed from ChatGPT and I, is deployed on https://toegazer.onrender.com (traditional Chinese is the preferable language).
+
+## Some Modifications:
+
+- Use antd v5 for UI components
+- Add an account page
+- Add a video page to embed youtube  
+- Add a search bar and a search result page
+- Add a float menu using antd
+- Add hashtags in notes
+- Add isRemoved in note schema to hide deleted notes
+- Update apollo/client to v3
+- Update babel & parcel 
+
+## Related Repositories
+
+- [Original Repo for Web](https://github.com/javascripteverywhere/web)
+- [API](https://github.com/jtciou26/note-api)
+- [Mobile](https://github.com/jtciou26/note-app)
+
+## Questions or Feedback?
+
+Feel free to file an issue if you have any questions.
+
+---
 
 <img src="cover.png" width="200" align="right" />
 
 # JavaScript Everywhere Web Application
 
 This repository contains code examples for the web application chapters of [_JavaScript Everywhere_](https://www.jseverywhere.io/) by Adam D. Scott, published by O'Reilly Media
-
-## Directory Structure
-
-- `/src` If you are following along with the book, this is the directory where you should perform your development.
-- `/final` This directory contains the final working project
-
-## To Run the Application
-
-When developing locally, you can start the app by running:
-
-```
-npm run dev
-```
-
-If you are interested running the completed application, you can run:
-
-```
-npm run final
-```
-
-## Related Repositories
-
-- [API 🗄️ ](https://github.com/javascripteverywhere/api)
-- [Mobile 🤳](https://github.com/javascripteverywhere/mobile)
-- [Desktop 🖥️](https://github.com/javascripteverywhere/desktop)
 
 ## Code of Conduct
 

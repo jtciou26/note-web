@@ -54,20 +54,24 @@ const GET_NOTE = gql`
 `;
 
 const GET_MY_NOTES = gql`
-  query me {
+  query me($cursor: String) {
     me {
       id
       username
-      notes {
-        id
-        content
-        createdAt
-        favoriteCount
-        isRemoved
-        author {
-          username
+      notes(cursor: $cursor) {
+        cursor
+        hasNextPage
+        notes {
           id
-          avatar
+          content
+          createdAt
+          favoriteCount
+          isRemoved
+          author {
+            username
+            id
+            avatar
+          }
         }
       }
     }

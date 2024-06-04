@@ -3,15 +3,19 @@ import { useQuery } from '@apollo/client';
 import { IS_LOGGED_IN } from '../gql/query';
 import UserContent from '../components/UserContent';
 import { Gravatar } from '../components/Misc';
-import { Button, Card, Row } from 'antd';
+import { Button, Row } from 'antd';
 import styled from 'styled-components';
+
+const Wrapper = styled.div`
+  max-width: 500px;
+  margin: 5% auto;
+`;
 
 const Drawn = styled.div`
   --radius-drawn: 250px 25px 15px 20px / 15px 80px 105px 115px;
   border-radius: var(--radius-drawn);
   border: 2px solid #f5f4f0;
-  width: 500px;
-  margin: 3% auto;
+  margin: 5% auto;
   padding: 20px;
 `;
 
@@ -41,27 +45,26 @@ const Account = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error! User not found</p>;
   return (
-    <>
+    <Wrapper>
       <Drawn>
         <UserContent />
       </Drawn>
-      <>
-        <Row justify="center">
-          <Gravatar />
-        </Row>
-        <Row justify="center">
-          {data.isLoggedIn && (
-            <Button
-              size="large"
-              onClick={handleLogout}
-              style={{ margin: '30px' }}
-            >
-              登出
-            </Button>
-          )}
-        </Row>
-      </>
-    </>
+
+      <Row justify="center">
+        <Gravatar />
+      </Row>
+      <Row justify="center">
+        {data.isLoggedIn && (
+          <Button
+            size="large"
+            onClick={handleLogout}
+            style={{ margin: '30px' }}
+          >
+            登出
+          </Button>
+        )}
+      </Row>
+    </Wrapper>
   );
 };
 export default Account;

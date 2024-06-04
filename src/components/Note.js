@@ -50,7 +50,7 @@ const Note = ({ note }) => {
         </MetaInfo>
         <MetaInfo>
           <em>by</em> {note.author.username} <br />
-          {format(note.createdAt, 'MMM Do YYYY')}
+          {format(note.createdAt, 'YYYY-MMM-DD')}
         </MetaInfo>
         {data.isLoggedIn ? (
           <UserActions>

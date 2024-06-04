@@ -6,11 +6,11 @@ const { Text, Link } = Typography;
 const Gravatar = () => {
   return (
     <>
-      <Text>*信箱的用途是可以從&nbsp;</Text>
+      <Text>*信箱的用途是可以使用&nbsp;</Text>
       <Link href="https://gravatar.com/" target="_blank">
         Gravatar
       </Link>
-      <Text>&nbsp;取得大頭貼。信箱目前不會驗證。</Text>
+      <Text>&nbsp;的大頭貼。信箱目前不會驗證。</Text>
     </>
   );
 };
@@ -28,6 +28,7 @@ const MD = () => {
         <li>有序: 1. </li>
         <li>無序: -</li>
         <li>待辦: - [x] </li>
+        <li>分隔線: ---</li>
         <li>連結: [註解](https://)</li>
         <li>圖片: ![註解](https://)</li>
         <li></li>

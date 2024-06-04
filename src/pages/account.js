@@ -4,6 +4,16 @@ import { IS_LOGGED_IN } from '../gql/query';
 import UserContent from '../components/UserContent';
 import { Gravatar } from '../components/Misc';
 import { Button, Card, Row } from 'antd';
+import styled from 'styled-components';
+
+const Drawn = styled.div`
+  --radius-drawn: 250px 25px 15px 20px / 15px 80px 105px 115px;
+  border-radius: var(--radius-drawn);
+  border: 2px solid #f5f4f0;
+  width: 500px;
+  margin: 3% auto;
+  padding: 20px;
+`;
 
 const Account = () => {
   useEffect(() => {
@@ -32,24 +42,25 @@ const Account = () => {
   if (error) return <p>Error! User not found</p>;
   return (
     <>
-      <Card
-        style={{
-          width: '500px',
-          margin: '3% auto'
-        }}
-      >
+      <Drawn>
         <UserContent />
-        {data.isLoggedIn && (
-          <Row justify="center">
-            <Button size="large" onClick={handleLogout}>
+      </Drawn>
+      <>
+        <Row justify="center">
+          <Gravatar />
+        </Row>
+        <Row justify="center">
+          {data.isLoggedIn && (
+            <Button
+              size="large"
+              onClick={handleLogout}
+              style={{ margin: '30px' }}
+            >
               登出
             </Button>
-          </Row>
-        )}
-      </Card>
-      <Row justify="center">
-        <Gravatar />
-      </Row>
+          )}
+        </Row>
+      </>
     </>
   );
 };

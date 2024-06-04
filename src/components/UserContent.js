@@ -46,8 +46,7 @@ const Profile = () => {
           style={{
             fontSize: '16px',
             marginLeft: '30px',
-            display: 'inline-block',
-            width: '350px'
+            display: 'inline-block'
           }}
           editable={{
             onChange: handleUsernameChange

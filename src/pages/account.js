@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   max-width: 500px;
-  margin: 5% auto;
+  margin: 0 auto;
 `;
 
 const Drawn = styled.div`

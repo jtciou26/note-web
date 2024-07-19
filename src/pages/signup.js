@@ -23,7 +23,7 @@ const SignUp = props => {
       //更新本機快取
       client.writeQuery({
         query: IS_LOGGED_IN,
-        data: true
+        data: { isLoggedIn: true }
       });
       //將使用者重新導向至首頁
       props.history.push('/');

@@ -34,7 +34,8 @@ const UserState = styled.div`
 
 const Header = props => {
   //使用者已登入狀態的查詢勾點 包括參考Apollo的用庫端
-  const { data, client } = useQuery(IS_LOGGED_IN);
+  const { data } = useQuery(IS_LOGGED_IN);
+
   const history = useHistory();
   const location = useLocation();
 

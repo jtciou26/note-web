@@ -115,7 +115,7 @@ const GET_ME = gql`
 `;
 
 const IS_LOGGED_IN = gql`
-  {
+  query IsUserLoggedIn {
     isLoggedIn @client
   }
 `;

@@ -27,17 +27,14 @@ const Account = () => {
   const { loading, error, data, client } = useQuery(IS_LOGGED_IN);
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
 
     // Update cache to set isLoggedIn to false
-    const logout = {
-      isLoggedIn: false
-    };
-
     client.writeQuery({
       query: IS_LOGGED_IN,
-      data: logout
+      data: { isLoggedIn: false }
     });
+
+    localStorage.removeItem('token');
 
     client.resetStore();
   };

@@ -8,7 +8,7 @@ const Favorites = () => {
   useEffect(() => {
     document.title = 'Favorites - Toegazer';
   });
-
+// abc
   const { loading, error, data } = useQuery(GET_MY_FAVORITES);
 
   if (loading) return 'Loading...';
